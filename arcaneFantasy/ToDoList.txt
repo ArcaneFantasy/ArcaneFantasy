@@ -1,0 +1,6 @@
+upgrade to forge 4.X
+Add world gen for ores
+finish adding blocks/tools/items/armor
+start work adding entities
+
+that should be a good start
