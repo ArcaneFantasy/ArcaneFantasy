@@ -1,0 +1,9 @@
+/dist/
+/build/
+/manifest.mf
+/nbproject/
+/arcaneFantasy/
+/mcp72/
+/minecraft/
+._mcp72
+._.gitignore
