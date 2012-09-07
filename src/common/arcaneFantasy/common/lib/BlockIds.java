@@ -9,5 +9,8 @@ package arcaneFantasy.common.lib;
  *
  * @author HMPerson1
  */
+@SuppressWarnings("PublicField")
 public class BlockIds {
+
+    public static int BLOCK_ORE_GEM = 400;
 }

@@ -5,6 +5,7 @@
 package arcaneFantasy.common.lib;
 
 import java.lang.reflect.Field;
+import java.util.*;
 import java.util.logging.*;
 
 /**
@@ -22,6 +23,10 @@ public class Reference {
      * User-friendly name.
      */
     public static final String MOD_NAME = "Arcane and Fantasy Mod";
+    /**
+     * Name for logging.
+     */
+    public static final String LOGGER_NAME = MOD_ID.toUpperCase(Locale.US);
     /**
      * Current version string.
      */
@@ -43,7 +48,7 @@ public class Reference {
      */
     public static final String ITEM_SPRITE_SHEET = "icons.png";
     /**
-     * Name for logging.
+     * File name of the block sprite sheet.
      */
-    public static final String LOGGER_NAME = MOD_ID.toUpperCase();
+    public static final String BLOCK_SPRITE_SHEET = "blocks.png";
 }

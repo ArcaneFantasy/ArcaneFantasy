@@ -4,12 +4,10 @@
  */
 package arcaneFantasy.common;
 
-import java.lang.reflect.Field;
 import arcaneFantasy.common.block.BlockManager;
 import arcaneFantasy.common.core.CommonProxy;
 import arcaneFantasy.common.core.handlers.ConfigurationHandler;
 import arcaneFantasy.common.item.ItemManager;
-import arcaneFantasy.common.lib.LoggingHelper;
 import arcaneFantasy.common.lib.Reference;
 import arcaneFantasy.common.network.PacketHandler;
 import cpw.mods.fml.common.Mod;
@@ -38,6 +36,7 @@ public class ArcaneFantasy {
      * FML)
      */
     @Mod.Instance
+    @SuppressWarnings("PublicField")
     public static ArcaneFantasy instance;
     /**
      * The proxy. This will be set (by Forge) to different classes depending on
@@ -45,6 +44,7 @@ public class ArcaneFantasy {
      */
     @SidedProxy(clientSide = "arcaneFantasy.client.core.ClientProxy",
                 serverSide = "arcaneFantaxy.common.core.CommonProxy")
+    @SuppressWarnings("PublicField")
     public static CommonProxy proxy;
 
     /**
@@ -90,5 +90,6 @@ public class ArcaneFantasy {
      */
     @Mod.PostInit
     public void postInit(FMLPostInitializationEvent evt) {
+        // TODO: Plugins??
     }
 }

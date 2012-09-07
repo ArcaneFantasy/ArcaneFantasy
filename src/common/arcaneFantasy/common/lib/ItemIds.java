@@ -9,5 +9,8 @@ package arcaneFantasy.common.lib;
  *
  * @author HMPerson1
  */
+@SuppressWarnings("PublicField")
 public class ItemIds {
+
+    public static int ITEM_GEM = 400;
 }
