@@ -42,7 +42,7 @@ public class Reference {
     /**
      * Directory that the sprite sheets are in.
      */
-    public static final String SPRITE_SHEET_LOCATION = "/arcaneFantasy/client/art/sprites/";
+    public static final String SPRITE_SHEET_LOCATION = "/arcaneFantasy/art/sprites/";
     /**
      * File name of the icon sprite sheet.
      */
