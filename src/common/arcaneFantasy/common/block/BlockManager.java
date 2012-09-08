@@ -10,10 +10,11 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.WorldGenMinable;
 
 import arcaneFantasy.common.item.ItemManager;
+import arcaneFantasy.common.item.ItemModGem;
+import arcaneFantasy.common.item.ItemModMetal;
 import static arcaneFantasy.common.lib.BlockIds.*;
 import arcaneFantasy.common.lib.WorldGen;
-import arcaneFantasy.common.lib.WorldGen.Ore.Gem.Amethyst;
-import arcaneFantasy.common.lib.WorldGen.Ore.Gem.Crystal;
+import arcaneFantasy.common.lib.WorldGen.Ore;
 import arcaneFantasy.common.lib.WorldGeneratorDelegate;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -27,6 +28,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class BlockManager {
 
     public static Block oreGem;
+    public static Block oreMetal;
 
     /**
      * Registers blocks and their natural spawns.
@@ -34,11 +36,25 @@ public class BlockManager {
     public static void init() {
         oreGem = new BlockModOreGem(BLOCK_ORE_GEM, 0).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("oreGem");
+        oreMetal = new BlockModOreMetal(BLOCK_ORE_METAL, 16).setHardness(3).setResistance(5)
+                .setStepSound(Block.soundStoneFootstep).setBlockName("oreMetal");
 
         GameRegistry.registerBlock(oreGem, ItemDamageValuedBlock.class);
+        GameRegistry.registerBlock(oreMetal, ItemDamageValuedBlock.class);
 
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 0), "Crystal Ore");
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 1), "Amethyst Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 0), "Copper Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 1), "Pyrite Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 2), "Magneze Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 3), "Silver Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 4), "Magilith Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 5), "Dragon Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 6), "Platinum Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 7), "Paladinium Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 8), "Firium Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 9), "Glacium Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 10), "Foudrium Ore");
 
         registerGen();
     }
@@ -48,22 +64,32 @@ public class BlockManager {
      */
     public static void initRecipes() {
         FurnaceRecipes recipes = FurnaceRecipes.smelting();
-        recipes.addSmelting(oreGem.blockID, 0, new ItemStack(ItemManager.gem, 1, 0));
-        recipes.addSmelting(oreGem.blockID, 1, new ItemStack(ItemManager.gem, 1, 1));
+        for (int i = 0; i < ItemModGem.GEM_TYPES; ++i) {
+            recipes.addSmelting(oreGem.blockID, i, new ItemStack(ItemManager.gem, 1, i));
+        }
+        for (int i = 0; i < ItemModMetal.METAL_TYPES; ++i) {
+            recipes.addSmelting(oreMetal.blockID, i, new ItemStack(ItemManager.metal, 1, i));
+        }
     }
 
     /**
      * Registers ore generators for world gen.
      */
     private static void registerGen() {
-        GameRegistry.registerWorldGenerator(createGenerator(
-                oreGem.blockID, 0, Crystal.ORE_PER_VEIN,
-                Crystal.MIN_SPAWN_HEIGHT, Crystal.MAX_SPAWN_HEIGHT,
-                Crystal.SPAWN_RATE, WorldGen.Ore.NON_GEN_LEVELS));
-        GameRegistry.registerWorldGenerator(createGenerator(
-                oreGem.blockID, 1, Amethyst.ORE_PER_VEIN,
-                Amethyst.MIN_SPAWN_HEIGHT, Amethyst.MAX_SPAWN_HEIGHT,
-                Amethyst.SPAWN_RATE, WorldGen.Ore.NON_GEN_LEVELS));
+        int i = 0;
+        for (Ore ore : Ore.GEMS) {
+            GameRegistry.registerWorldGenerator(createGenerator(
+                    oreGem.blockID, i, ore.orePerVein, ore.minSpawnHeight,
+                    ore.maxSpawnHeight, ore.spawnRate, ore.nonGenLevels));
+            ++i;
+        }
+        i = 0;
+        for (Ore ore : Ore.METALS) {
+            GameRegistry.registerWorldGenerator(createGenerator(
+                    oreGem.blockID, i, ore.orePerVein, ore.minSpawnHeight,
+                    ore.maxSpawnHeight, ore.spawnRate, ore.nonGenLevels));
+            ++i;
+        }
     }
 
     /**

@@ -12,28 +12,41 @@ package arcaneFantasy.common.lib;
 @SuppressWarnings("PublicInnerClass")
 public class WorldGen {
 
-    public static class Ore {
+    // None of our stuff should spawn in the nether or end
+    public static final int[] NON_GEN_LEVELS = {1, -1};
 
-        // None of our ores should spawn in the nether or end
-        public static final int[] NON_GEN_LEVELS = {1, -1};
+    public static enum Ore {
 
-        public static class Gem {
+        // TODO: More fine-tuning
+        CRYSTAL(20, 0, 128, 10, NON_GEN_LEVELS),
+        AMETHYST(8, 0, 16, 2, NON_GEN_LEVELS),
+        COPPER(20, 0, 64, 10, NON_GEN_LEVELS),
+        PYRITE(20, 0, 32, 10, NON_GEN_LEVELS),
+        MAGNEZE(20, 0, 32, 10, NON_GEN_LEVELS),
+        SILVER(20, 0, 32, 10, NON_GEN_LEVELS),
+        MAGILITH(20, 0, 32, 10, NON_GEN_LEVELS),
+        DRAGON(20, 0, 16, 10, NON_GEN_LEVELS),
+        PLATINUM(20, 0, 16, 10, NON_GEN_LEVELS),
+        PALADINIUM(20, 0, 16, 10, NON_GEN_LEVELS),
+        FIRIUM(20, 0, 16, 10, NON_GEN_LEVELS),
+        GLACIUM(20, 0, 16, 10, NON_GEN_LEVELS),
+        FOUDIUM(20, 0, 16, 10, NON_GEN_LEVELS);
+        public static final Ore[] GEMS = {CRYSTAL, AMETHYST};
+        public static final Ore[] METALS = {
+            COPPER, PYRITE, MAGNEZE, SILVER, MAGILITH, DRAGON,
+            PLATINUM, PALADINIUM, FIRIUM, GLACIUM, FOUDIUM};
+        public final int orePerVein;
+        public final int minSpawnHeight;
+        public final int maxSpawnHeight;
+        public final int spawnRate;
+        public final int[] nonGenLevels;
 
-            public static class Crystal {
-
-                public static final int MAX_SPAWN_HEIGHT = 128;
-                public static final int MIN_SPAWN_HEIGHT = 0;
-                public static final int ORE_PER_VEIN = 20;
-                public static final int SPAWN_RATE = 10;
-            }
-
-            public static class Amethyst {
-
-                public static final int MAX_SPAWN_HEIGHT = 16;
-                public static final int MIN_SPAWN_HEIGHT = 0;
-                public static final int ORE_PER_VEIN = 8;
-                public static final int SPAWN_RATE = 2;
-            }
+        private Ore(int orePerVein, int minSpawnHeight, int maxSpawnHeight, int spawnRate, int[] nonGenLevels) {
+            this.orePerVein = orePerVein;
+            this.minSpawnHeight = minSpawnHeight;
+            this.maxSpawnHeight = maxSpawnHeight;
+            this.spawnRate = spawnRate;
+            this.nonGenLevels = nonGenLevels;
         }
     }
 }

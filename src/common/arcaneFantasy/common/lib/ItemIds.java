@@ -13,4 +13,5 @@ package arcaneFantasy.common.lib;
 public class ItemIds {
 
     public static int ITEM_GEM = 400;
+    public static int ITEM_METAL = 401;
 }
