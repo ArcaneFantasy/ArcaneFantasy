@@ -7,6 +7,7 @@ package arcaneFantasy.common.block;
 import net.minecraft.src.BlockOre;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.World;
 
 import java.util.*;
 
@@ -42,13 +43,15 @@ public class BlockModOreMetal extends BlockOre {
     }
 
     @Override
-    public int idDropped(int par1, Random par2Random, int par3) {
-        return ItemManager.metal.shiftedIndex;
+    protected int damageDropped(int damage) {
+        return damage;
     }
 
     @Override
-    protected int damageDropped(int damage) {
-        return damage;
+    // TODO: Remove this debugging code
+    public void onBlockAdded(World par1World, int par2, int par3, int par4) {
+        System.out.println(String.format("Ore %s: %d, %d, %d", METAL_NAMES[par1World.getBlockMetadata(par2, par3, par4)], par2, par3, par4));
+        super.onBlockAdded(par1World, par2, par3, par4);
     }
 
     /**

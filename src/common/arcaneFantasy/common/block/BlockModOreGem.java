@@ -52,6 +52,13 @@ public class BlockModOreGem extends BlockOre {
         return damage;
     }
 
+    @Override
+    // TODO: Remove this debugging code
+    public void onBlockAdded(World par1World, int par2, int par3, int par4) {
+        System.out.println(String.format("Ore %s: %d, %d, %d", GEM_NAMES[par1World.getBlockMetadata(par2, par3, par4)], par2, par3, par4));
+        super.onBlockAdded(par1World, par2, par3, par4);
+    }
+
     /**
      * {@inheritDoc}
      *

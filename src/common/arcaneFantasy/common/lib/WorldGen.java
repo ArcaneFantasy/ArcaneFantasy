@@ -20,17 +20,17 @@ public class WorldGen {
         // TODO: More fine-tuning
         CRYSTAL(20, 0, 128, 10, NON_GEN_LEVELS),
         AMETHYST(8, 0, 16, 2, NON_GEN_LEVELS),
-        COPPER(20, 0, 64, 10, NON_GEN_LEVELS),
-        PYRITE(20, 0, 32, 10, NON_GEN_LEVELS),
-        MAGNEZE(20, 0, 32, 10, NON_GEN_LEVELS),
-        SILVER(20, 0, 32, 10, NON_GEN_LEVELS),
-        MAGILITH(20, 0, 32, 10, NON_GEN_LEVELS),
-        DRAGON(20, 0, 16, 10, NON_GEN_LEVELS),
-        PLATINUM(20, 0, 16, 10, NON_GEN_LEVELS),
-        PALADINIUM(20, 0, 16, 10, NON_GEN_LEVELS),
-        FIRIUM(20, 0, 16, 10, NON_GEN_LEVELS),
-        GLACIUM(20, 0, 16, 10, NON_GEN_LEVELS),
-        FOUDIUM(20, 0, 16, 10, NON_GEN_LEVELS);
+        COPPER(20, 0, 64, 3, NON_GEN_LEVELS),
+        PYRITE(20, 0, 32, 3, NON_GEN_LEVELS),
+        MAGNEZE(20, 0, 32, 3, NON_GEN_LEVELS),
+        SILVER(20, 0, 32, 3, NON_GEN_LEVELS),
+        MAGILITH(20, 0, 32, 3, NON_GEN_LEVELS),
+        DRAGON(20, 0, 16, 3, NON_GEN_LEVELS),
+        PLATINUM(20, 0, 16, 3, NON_GEN_LEVELS),
+        PALADINIUM(20, 0, 16, 3, NON_GEN_LEVELS),
+        FIRIUM(20, 0, 16, 3, NON_GEN_LEVELS),
+        GLACIUM(20, 0, 16, 3, NON_GEN_LEVELS),
+        FOUDIUM(20, 0, 16, 3, NON_GEN_LEVELS);
         public static final Ore[] GEMS = {CRYSTAL, AMETHYST};
         public static final Ore[] METALS = {
             COPPER, PYRITE, MAGNEZE, SILVER, MAGILITH, DRAGON,

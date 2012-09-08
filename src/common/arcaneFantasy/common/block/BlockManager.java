@@ -13,7 +13,6 @@ import arcaneFantasy.common.item.ItemManager;
 import arcaneFantasy.common.item.ItemModGem;
 import arcaneFantasy.common.item.ItemModMetal;
 import static arcaneFantasy.common.lib.BlockIds.*;
-import arcaneFantasy.common.lib.WorldGen;
 import arcaneFantasy.common.lib.WorldGen.Ore;
 import arcaneFantasy.common.lib.WorldGeneratorDelegate;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -49,7 +48,7 @@ public class BlockManager {
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 2), "Magneze Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 3), "Silver Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 4), "Magilith Ore");
-        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 5), "Dragon Ore");
+        LanguageRegistry.addName(new ItemStack(oreMetal, 1, 5), "Dragon Bone Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 6), "Platinum Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 7), "Paladinium Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 8), "Firium Ore");
@@ -86,7 +85,7 @@ public class BlockManager {
         i = 0;
         for (Ore ore : Ore.METALS) {
             GameRegistry.registerWorldGenerator(createGenerator(
-                    oreGem.blockID, i, ore.orePerVein, ore.minSpawnHeight,
+                    oreMetal.blockID, i, ore.orePerVein, ore.minSpawnHeight,
                     ore.maxSpawnHeight, ore.spawnRate, ore.nonGenLevels));
             ++i;
         }

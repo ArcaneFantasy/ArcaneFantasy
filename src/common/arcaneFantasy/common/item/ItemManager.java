@@ -37,7 +37,7 @@ public class ItemManager {
         LanguageRegistry.addName(new ItemStack(metal, 1, 2), "Magneze Ingot");
         LanguageRegistry.addName(new ItemStack(metal, 1, 3), "Silver Ingot");
         LanguageRegistry.addName(new ItemStack(metal, 1, 4), "Magilith Ingot");
-        LanguageRegistry.addName(new ItemStack(metal, 1, 5), "Dragon Ingot");
+        LanguageRegistry.addName(new ItemStack(metal, 1, 5), "Dragon Bone Ingot");
         LanguageRegistry.addName(new ItemStack(metal, 1, 6), "Platinum Ingot");
         LanguageRegistry.addName(new ItemStack(metal, 1, 7), "Paladinium Ingot");
         LanguageRegistry.addName(new ItemStack(metal, 1, 8), "Firium Ingot");
