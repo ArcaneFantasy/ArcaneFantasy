@@ -17,4 +17,5 @@ public class ItemIds {
     public static int ITEM_SLATE_FLAKE = 402;
     public static int ITEM_CHALK = 403;
     public static int ITEM_SALT = 404;
+    public static int ITEM_SWORD = 405;
 }

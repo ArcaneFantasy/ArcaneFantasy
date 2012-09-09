@@ -17,7 +17,7 @@ public class ItemAFSword extends ItemSword {
     /**
      * The material this item is made of.
      */
-    private final EnumAFToolMaterial toolMaterial;
+    public final EnumAFToolMaterial toolMaterial;
     /**
      * How much damage this does to an entity.
      */

@@ -9,6 +9,8 @@ import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 
+import java.util.*;
+
 import arcaneFantasy.common.block.BlockManager;
 import arcaneFantasy.common.lib.ItemIds;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -25,6 +27,7 @@ public class ItemManager {
     public static Item slateFlake;
     public static Item chalk;
     public static Item salt;
+    public static ItemAFSword[] swords;
 
     /**
      * Initializes items.
@@ -40,6 +43,19 @@ public class ItemManager {
                 .setItemName("chalk").setTabToDisplayOn(CreativeTabs.tabMaterials);
         salt = new ItemAFSalt(ItemIds.ITEM_SALT).setIconCoord(13, 0)
                 .setItemName("salt").setTabToDisplayOn(CreativeTabs.tabMaterials);
+        int i = 0;
+        for (EnumAFToolMaterial material : EnumAFToolMaterial.values()) {
+            String name = material.name().toLowerCase(Locale.US);
+            swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ITEM_SWORD + i, material).setIconCoord(i, 3)
+                    .setItemName("sword." + name)
+                    .setTabToDisplayOn(CreativeTabs.tabCombat);
+            // while we're in here, we might as well add the names
+            LanguageRegistry.addName(swords[i], new StringBuilder()
+                    .append(name.substring(0, 1).toUpperCase(Locale.US))
+                    .append(name.substring(1))
+                    .append(" Sword").toString());
+            ++i;
+        }
 
         LanguageRegistry.addName(new ItemStack(gem, 1, 0), "Crystal Gem");
         LanguageRegistry.addName(new ItemStack(gem, 1, 1), "Amethyst Gem");
@@ -81,22 +97,38 @@ public class ItemManager {
     public static void initRecipes() {
         CraftingManager instance = CraftingManager.getInstance();
         instance.addShapelessRecipe(new ItemStack(slateFlake, 1, 1),
-                                    new Object[]{slateFlake, slateFlake});
+                                    slateFlake, slateFlake);
         instance.addRecipe(new ItemStack(BlockManager.stone, 1, 0),
-                           new Object[]{RECIPE_SLATE_BLOCK, 'F', new ItemStack(slateFlake, 1, 1)});
+                           RECIPE_SLATE_BLOCK, 'F', new ItemStack(slateFlake, 1, 1));
         for (int i = 0; i < ItemAFChalk.CHALK_TYPES - 1; i++) {
             // don't allow bleaching of already white chalk
             instance.addShapelessRecipe(new ItemStack(chalk, 1, i),
-                                        new Object[]{new ItemStack(Item.dyePowder, 1, i), new ItemStack(chalk, 1, 15)});
+                                        new ItemStack(Item.dyePowder, 1, i),
+                                        new ItemStack(chalk, 1, 15));
             instance.addShapelessRecipe(new ItemStack(chalk, 2, i),
-                                        new Object[]{new ItemStack(Item.dyePowder, 1, i), new ItemStack(chalk, 1, 15), new ItemStack(chalk, 1, 15)});
+                                        new ItemStack(Item.dyePowder, 1, i),
+                                        new ItemStack(chalk, 1, 15),
+                                        new ItemStack(chalk, 1, 15));
             // you can get 2 colorings for one dye
         }
         // TODO: Should we allow bleaching chalks with bonemeal?
+        for (ItemAFSword sword : swords) {
+            // Ugly, but it works
+            instance.addRecipe(new ItemStack(sword), RECIPE_SWORD, 'X',
+                               new ItemStack(sword.toolMaterial.ingot
+                                             ? metal.shiftedIndex
+                                             : gem.shiftedIndex,
+                                             1, sword.toolMaterial.materialMeta));
+        }
     }
     public static final String[] RECIPE_SLATE_BLOCK = {
         "FFF",
         "FFF",
         "FFF"
+    };
+    public static final String[] RECIPE_SWORD = {
+        "X",
+        "X",
+        "#"
     };
 }
