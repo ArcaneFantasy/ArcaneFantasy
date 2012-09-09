@@ -57,8 +57,8 @@ public class ItemManager {
             ++i;
         }
         
-        LanguageRegistry.addName(new ItemStack(gem, 1, 0), "Crystal Gem");
-        LanguageRegistry.addName(new ItemStack(gem, 1, 1), "Amethyst Gem");
+        LanguageRegistry.addName(new ItemStack(gem, 1, 0), "Quartz");
+        LanguageRegistry.addName(new ItemStack(gem, 1, 1), "Amethyst");
         LanguageRegistry.addName(new ItemStack(metal, 1, 0), "Copper Ingot");
         LanguageRegistry.addName(new ItemStack(metal, 1, 1), "Pyrite Ingot");
         LanguageRegistry.addName(new ItemStack(metal, 1, 2), "Magneze Ingot");
@@ -118,7 +118,8 @@ public class ItemManager {
                                new ItemStack(sword.toolMaterial.ingot
                                              ? metal.shiftedIndex
                                              : gem.shiftedIndex,
-                                             1, sword.toolMaterial.materialMeta));
+                                             1, sword.toolMaterial.materialMeta),
+                               new ItemStack(Item.stick));
         }
     }
     public static final String[] RECIPE_SLATE_BLOCK = {

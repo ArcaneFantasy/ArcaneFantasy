@@ -7,11 +7,10 @@ package arcaneFantasy.common.block;
 import net.minecraft.src.BlockOre;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.World;
 
 import java.util.*;
 
-import arcaneFantasy.common.item.ItemManager;
+import arcaneFantasy.common.item.ItemAFMetal;
 import static arcaneFantasy.common.item.ItemAFMetal.*;
 import arcaneFantasy.common.lib.Reference;
 
@@ -22,6 +21,10 @@ import arcaneFantasy.common.lib.Reference;
  */
 public class BlockAFOreMetal extends BlockOre {
 
+    /**
+     * Total number of metals. (Here for convenience should we add more)
+     */
+    public static final int METAL_TYPES = ItemAFMetal.METAL_TYPES;
     /**
      * Found through reflection by {@link ItemDamageValuedBlock}.
      */

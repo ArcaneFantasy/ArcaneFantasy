@@ -8,6 +8,8 @@ import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.WorldGenMinable;
+import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.MinecraftForge;
 
 import arcaneFantasy.common.item.ItemManager;
 import arcaneFantasy.common.item.ItemAFGem;
@@ -40,12 +42,22 @@ public class BlockManager {
                 .setStepSound(Block.soundStoneFootstep).setBlockName("oreMetal");
         stone = new BlockAFStone(BLOCK_STONE, 32).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("afStone");
+        
+        for (int i = 0; i < BlockAFOreGem.GEM_TYPES; i++) {
+            MinecraftForge.setBlockHarvestLevel(oreGem, i, "pickaxe", 3);
+        }
+        for (int i = 0; i < BlockAFOreMetal.METAL_TYPES; i++) {
+            MinecraftForge.setBlockHarvestLevel(oreMetal, i, "pickaxe", 2);
+        }
+        for (int i = 0; i < BlockAFStone.STONE_TYPES; i++) {
+            MinecraftForge.setBlockHarvestLevel(oreMetal, i, "pickaxe", 1);
+        }
 
         GameRegistry.registerBlock(oreGem, ItemDamageValuedBlock.class);
         GameRegistry.registerBlock(oreMetal, ItemDamageValuedBlock.class);
         GameRegistry.registerBlock(stone, ItemDamageValuedBlock.class);
 
-        LanguageRegistry.addName(new ItemStack(oreGem, 1, 0), "Crystal Ore");
+        LanguageRegistry.addName(new ItemStack(oreGem, 1, 0), "Quartz Ore");
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 1), "Amethyst Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 0), "Copper Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 1), "Pyrite Ore");

@@ -11,6 +11,7 @@ import net.minecraft.src.World;
 
 import java.util.*;
 
+import arcaneFantasy.common.item.ItemAFGem;
 import arcaneFantasy.common.item.ItemManager;
 import static arcaneFantasy.common.item.ItemAFGem.*;
 import arcaneFantasy.common.lib.Reference;
@@ -22,6 +23,10 @@ import arcaneFantasy.common.lib.Reference;
  */
 public class BlockAFOreGem extends BlockOre {
 
+    /**
+     * Total number of gems. (Here for convenience should we add more)
+     */
+    public static final int GEM_TYPES = ItemAFGem.GEM_TYPES;
     /**
      * Found through reflection by {@link ItemDamageValuedBlock}.
      */
