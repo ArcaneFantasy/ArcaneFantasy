@@ -10,8 +10,8 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.WorldGenMinable;
 
 import arcaneFantasy.common.item.ItemManager;
-import arcaneFantasy.common.item.ItemModGem;
-import arcaneFantasy.common.item.ItemModMetal;
+import arcaneFantasy.common.item.ItemAFGem;
+import arcaneFantasy.common.item.ItemAFMetal;
 import static arcaneFantasy.common.lib.BlockIds.*;
 import arcaneFantasy.common.lib.WorldGen.Ore;
 import arcaneFantasy.common.lib.WorldGeneratorDelegate;
@@ -28,18 +28,22 @@ public class BlockManager {
 
     public static Block oreGem;
     public static Block oreMetal;
+    public static Block stone;
 
     /**
      * Registers blocks and their natural spawns.
      */
     public static void init() {
-        oreGem = new BlockModOreGem(BLOCK_ORE_GEM, 0).setHardness(3).setResistance(5)
+        oreGem = new BlockAFOreGem(BLOCK_ORE_GEM, 0).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("oreGem");
-        oreMetal = new BlockModOreMetal(BLOCK_ORE_METAL, 16).setHardness(3).setResistance(5)
+        oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 16).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("oreMetal");
+        stone = new BlockAFStone(BLOCK_STONE, 32).setHardness(3).setResistance(5)
+                .setStepSound(Block.soundStoneFootstep).setBlockName("afStone");
 
         GameRegistry.registerBlock(oreGem, ItemDamageValuedBlock.class);
         GameRegistry.registerBlock(oreMetal, ItemDamageValuedBlock.class);
+        GameRegistry.registerBlock(stone, ItemDamageValuedBlock.class);
 
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 0), "Crystal Ore");
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 1), "Amethyst Ore");
@@ -54,6 +58,11 @@ public class BlockManager {
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 8), "Firium Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 9), "Glacium Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 10), "Foudrium Ore");
+        LanguageRegistry.addName(new ItemStack(stone, 1, 0), "Slate");
+        LanguageRegistry.addName(new ItemStack(stone, 1, 1), "Salt");
+        LanguageRegistry.addName(new ItemStack(stone, 1, 2), "Marble");
+        LanguageRegistry.addName(new ItemStack(stone, 1, 3), "Magnitite");
+        LanguageRegistry.addName(new ItemStack(stone, 1, 4), "Chalk");
 
         registerGen();
     }
@@ -63,10 +72,10 @@ public class BlockManager {
      */
     public static void initRecipes() {
         FurnaceRecipes recipes = FurnaceRecipes.smelting();
-        for (int i = 0; i < ItemModGem.GEM_TYPES; ++i) {
+        for (int i = 0; i < ItemAFGem.GEM_TYPES; ++i) {
             recipes.addSmelting(oreGem.blockID, i, new ItemStack(ItemManager.gem, 1, i));
         }
-        for (int i = 0; i < ItemModMetal.METAL_TYPES; ++i) {
+        for (int i = 0; i < ItemAFMetal.METAL_TYPES; ++i) {
             recipes.addSmelting(oreMetal.blockID, i, new ItemStack(ItemManager.metal, 1, i));
         }
     }
@@ -86,6 +95,13 @@ public class BlockManager {
         for (Ore ore : Ore.METALS) {
             GameRegistry.registerWorldGenerator(createGenerator(
                     oreMetal.blockID, i, ore.orePerVein, ore.minSpawnHeight,
+                    ore.maxSpawnHeight, ore.spawnRate, ore.nonGenLevels));
+            ++i;
+        }
+        i = 0;
+        for (Ore ore : Ore.STONES) {
+            GameRegistry.registerWorldGenerator(createGenerator(
+                    stone.blockID, i, ore.orePerVein, ore.minSpawnHeight,
                     ore.maxSpawnHeight, ore.spawnRate, ore.nonGenLevels));
             ++i;
         }

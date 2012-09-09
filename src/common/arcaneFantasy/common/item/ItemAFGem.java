@@ -17,7 +17,7 @@ import arcaneFantasy.common.lib.Reference;
  *
  * @author HMPerson1
  */
-public class ItemModGem extends Item {
+public class ItemAFGem extends Item {
 
     /**
      * Total number of gems. (Here for convenience should we add more)
@@ -32,7 +32,7 @@ public class ItemModGem extends Item {
      *
      * @param id this item's id
      */
-    public ItemModGem(int id) {
+    public ItemAFGem(int id) {
         super(id);
         setHasSubtypes(true);
         setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);

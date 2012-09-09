@@ -14,4 +14,5 @@ public class BlockIds {
 
     public static int BLOCK_ORE_GEM = 400;
     public static int BLOCK_ORE_METAL = 401;
+    public static int BLOCK_STONE = 402;
 }

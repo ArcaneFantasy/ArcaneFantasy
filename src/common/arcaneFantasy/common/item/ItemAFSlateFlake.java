@@ -13,28 +13,26 @@ import java.util.*;
 import arcaneFantasy.common.lib.Reference;
 
 /**
- * Generic Item for all mod metals.
+ * Generic Item for all slate flake types.
  *
  * @author HMPerson1
  */
-public class ItemAFMetal extends Item {
+public class ItemAFSlateFlake extends Item {
 
     /**
-     * Total number of metals. (Here for convenience should we add more)
+     * Total number of flake types. (Here for convenience should we add more)
      */
-    public static final int METAL_TYPES = 11;
+    public static final int SLATEF_TYPES = 2;
     /**
-     * Names of all the metals, indexed by damage value.
+     * Names of all the flake types, indexed by damage value.
      */
-    public static final String[] METAL_NAMES = {
-        "copper", "pyrite", "magneze", "silver", "magilith", "dragon",
-        "platinum", "paladinium", "firium", "glacium", "foudrium"};
+    public static final String[] SLATEF_NAMES = {"1flake", "2flake"};
 
     /**
      *
      * @param id this item's id
      */
-    public ItemAFMetal(int id) {
+    public ItemAFSlateFlake(int id) {
         super(id);
         setHasSubtypes(true);
         setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
@@ -48,7 +46,7 @@ public class ItemAFMetal extends Item {
      */
     @Override
     public int getIconFromDamage(int par1) {
-        return iconIndex + par1;
+        return iconIndex - par1;
     }
 
     /**
@@ -59,7 +57,7 @@ public class ItemAFMetal extends Item {
      */
     @Override
     public String getItemNameIS(ItemStack is) {
-        return String.format("%s.%s", getItemName(), METAL_NAMES[is.getItemDamage()]);
+        return String.format("%s.%s", getItemName(), SLATEF_NAMES[is.getItemDamage()]);
     }
 
     /**
@@ -72,7 +70,7 @@ public class ItemAFMetal extends Item {
     @Override
     @SuppressWarnings("unchecked") // FORGE!!!! Y U FORGET ABOUT GENERICS?!?!
     public void getSubItems(int id, CreativeTabs ignored, List list) {
-        for (int i = 0; i < METAL_TYPES; i++) {
+        for (int i = 0; i < SLATEF_TYPES; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }

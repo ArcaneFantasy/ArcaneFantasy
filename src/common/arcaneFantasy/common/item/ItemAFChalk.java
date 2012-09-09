@@ -13,28 +13,28 @@ import java.util.*;
 import arcaneFantasy.common.lib.Reference;
 
 /**
- * Generic Item for all mod metals.
+ * Generic Item for all chalk colors.
  *
  * @author HMPerson1
  */
-public class ItemAFMetal extends Item {
+public class ItemAFChalk extends Item {
 
     /**
-     * Total number of metals. (Here for convenience should we add more)
+     * Total number of chalk colors. (Here for convenience should we add more)
      */
-    public static final int METAL_TYPES = 11;
+    public static final int CHALK_TYPES = 16;
     /**
-     * Names of all the metals, indexed by damage value.
+     * Names of all the chalk colors, indexed by damage value.
      */
-    public static final String[] METAL_NAMES = {
-        "copper", "pyrite", "magneze", "silver", "magilith", "dragon",
-        "platinum", "paladinium", "firium", "glacium", "foudrium"};
+    public static final String[] CHALK_NAMES = {
+        "black", "red", "green", "brown", "blue", "purple", "cyan", "silver",
+        "gray", "pink", "lime", "yellow", "lightBlue", "magenta", "orange", "white"};
 
     /**
      *
      * @param id this item's id
      */
-    public ItemAFMetal(int id) {
+    public ItemAFChalk(int id) {
         super(id);
         setHasSubtypes(true);
         setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
@@ -59,7 +59,7 @@ public class ItemAFMetal extends Item {
      */
     @Override
     public String getItemNameIS(ItemStack is) {
-        return String.format("%s.%s", getItemName(), METAL_NAMES[is.getItemDamage()]);
+        return String.format("%s.%s", getItemName(), CHALK_NAMES[is.getItemDamage()]);
     }
 
     /**
@@ -72,7 +72,7 @@ public class ItemAFMetal extends Item {
     @Override
     @SuppressWarnings("unchecked") // FORGE!!!! Y U FORGET ABOUT GENERICS?!?!
     public void getSubItems(int id, CreativeTabs ignored, List list) {
-        for (int i = 0; i < METAL_TYPES; i++) {
+        for (int i = 0; i < CHALK_TYPES; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
