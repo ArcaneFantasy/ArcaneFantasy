@@ -21,7 +21,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  */
 @SuppressWarnings("PublicField")
 public class ItemManager {
-    
+
     public static Item gem;
     public static Item metal;
     public static Item slateFlake;
@@ -56,7 +56,7 @@ public class ItemManager {
                     .append(" Sword").toString());
             ++i;
         }
-        
+
         LanguageRegistry.addName(new ItemStack(gem, 1, 0), "Quartz");
         LanguageRegistry.addName(new ItemStack(gem, 1, 1), "Amethyst");
         LanguageRegistry.addName(new ItemStack(metal, 1, 0), "Copper Ingot");
@@ -119,7 +119,7 @@ public class ItemManager {
                                              ? metal.shiftedIndex
                                              : gem.shiftedIndex,
                                              1, sword.toolMaterial.materialMeta),
-                               new ItemStack(Item.stick));
+                               '#', new ItemStack(Item.stick));
         }
     }
     public static final String[] RECIPE_SLATE_BLOCK = {
