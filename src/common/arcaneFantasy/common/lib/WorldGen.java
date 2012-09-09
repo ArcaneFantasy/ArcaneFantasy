@@ -31,11 +31,11 @@ public class WorldGen {
         FIRIUM(20, 0, 16, 3, 1, NON_GEN_LEVELS),
         GLACIUM(20, 0, 16, 3, 1, NON_GEN_LEVELS),
         FOUDIUM(20, 0, 16, 3, 1, NON_GEN_LEVELS),
-        SLATE(50, 64, 128, 20, 0.2, NON_GEN_LEVELS),
-        SALT(50, 32, 64, 20, 0.2, NON_GEN_LEVELS),
-        MARBLE(50, 16, 64, 20, 0.2, NON_GEN_LEVELS),
-        MAGNETITE(50, 0, 64, 20, 0.2, NON_GEN_LEVELS),
-        CHALK(50, 32, 64, 20, 0.2, NON_GEN_LEVELS);
+        SLATE(50, 64, 128, 20, 0.3, NON_GEN_LEVELS),
+        SALT(50, 32, 64, 20, 0.45, NON_GEN_LEVELS),
+        MARBLE(100, 16, 64, 20, 0.2, NON_GEN_LEVELS),
+        MAGNETITE(20, 0, 64, 20, 0.5, NON_GEN_LEVELS),
+        CHALK(50, 32, 64, 20, 0.3, NON_GEN_LEVELS);
         public static final Ore[] GEMS = {
             CRYSTAL, AMETHYST
         };
