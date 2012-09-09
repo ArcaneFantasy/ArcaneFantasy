@@ -32,13 +32,13 @@ public class ItemManager {
     public static void init() {
         gem = new ItemAFGem(ItemIds.ITEM_GEM).setIconCoord(0, 0)
                 .setItemName("gem").setTabToDisplayOn(CreativeTabs.tabMaterials);
-        metal = new ItemAFMetal(ItemIds.ITEM_METAL).setIconCoord(1, 0)
+        metal = new ItemAFMetal(ItemIds.ITEM_METAL).setIconCoord(0, 1)
                 .setItemName("metal").setTabToDisplayOn(CreativeTabs.tabMaterials);
-        slateFlake = new ItemAFSlateFlake(ItemIds.ITEM_SLATE_FLAKE).setIconCoord(0, 15)
+        slateFlake = new ItemAFSlateFlake(ItemIds.ITEM_SLATE_FLAKE).setIconCoord(45, 0)
                 .setItemName("slatef").setTabToDisplayOn(CreativeTabs.tabMaterials);
-        chalk = new ItemAFChalk(ItemIds.ITEM_CHALK).setIconCoord(2, 0)
+        chalk = new ItemAFChalk(ItemIds.ITEM_CHALK).setIconCoord(0, 1)
                 .setItemName("chalk").setTabToDisplayOn(CreativeTabs.tabMaterials);
-        salt = new ItemAFSalt(ItemIds.ITEM_SALT).setIconCoord(0, 13)
+        salt = new ItemAFSalt(ItemIds.ITEM_SALT).setIconCoord(13, 0)
                 .setItemName("salt").setTabToDisplayOn(CreativeTabs.tabMaterials);
 
         LanguageRegistry.addName(new ItemStack(gem, 1, 0), "Crystal Gem");
