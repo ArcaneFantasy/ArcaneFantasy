@@ -81,6 +81,7 @@ public class ArcaneFantasy {
         ItemManager.initRecipes();
         // Recipes use items/blocks, so all the items/blocks need to be
         // initialized before the recipes can be added
+        System.gc(); // I think we've used enough objects by now...
     }
 
     /**

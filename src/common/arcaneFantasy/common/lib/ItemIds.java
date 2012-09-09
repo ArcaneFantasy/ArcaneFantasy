@@ -14,4 +14,7 @@ public class ItemIds {
 
     public static int ITEM_GEM = 400;
     public static int ITEM_METAL = 401;
+    public static int ITEM_SLATE_FLAKE = 402;
+    public static int ITEM_CHALK = 403;
+    public static int ITEM_SALT = 404;
 }

@@ -12,7 +12,7 @@ import net.minecraft.src.World;
 import java.util.*;
 
 import arcaneFantasy.common.item.ItemManager;
-import static arcaneFantasy.common.item.ItemModMetal.*;
+import static arcaneFantasy.common.item.ItemAFMetal.*;
 import arcaneFantasy.common.lib.Reference;
 
 /**
@@ -20,7 +20,7 @@ import arcaneFantasy.common.lib.Reference;
  *
  * @author HMPerson1
  */
-public class BlockModOreMetal extends BlockOre {
+public class BlockAFOreMetal extends BlockOre {
 
     /**
      * Found through reflection by {@link ItemDamageValuedBlock}.
@@ -32,7 +32,7 @@ public class BlockModOreMetal extends BlockOre {
      * @param id this block's id
      * @param tex the index at which this block's texture(s) are located
      */
-    public BlockModOreMetal(int id, int tex) {
+    public BlockAFOreMetal(int id, int tex) {
         super(id, tex);
         setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.BLOCK_SPRITE_SHEET);
     }
@@ -46,13 +46,13 @@ public class BlockModOreMetal extends BlockOre {
     protected int damageDropped(int damage) {
         return damage;
     }
-
-    @Override
-    // TODO: Remove this debugging code
-    public void onBlockAdded(World par1World, int par2, int par3, int par4) {
-        System.out.println(String.format("Ore %s: %d, %d, %d", METAL_NAMES[par1World.getBlockMetadata(par2, par3, par4)], par2, par3, par4));
-        super.onBlockAdded(par1World, par2, par3, par4);
-    }
+//
+//    @Override
+//    // TODO: Remove this debugging code
+//    public void onBlockAdded(World par1World, int par2, int par3, int par4) {
+//        System.out.println(String.format("Ore %s: %d, %d, %d", METAL_NAMES[par1World.getBlockMetadata(par2, par3, par4)], par2, par3, par4));
+//        super.onBlockAdded(par1World, par2, par3, par4);
+//    }
 
     /**
      * {@inheritDoc}
