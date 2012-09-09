@@ -40,6 +40,7 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
      * How frequent we should try to gen.
      */
     private final int freq;
+    private final double spawnChance;
 
     /**
      *
@@ -48,19 +49,25 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
      * @param yMin the minimum y-coordinate to generate in
      * @param yMax the maximum y-coordinate to generate in
      * @param freq the number of attempts made for the block to generate in
+     * @param chance the chance that a given chunk will be generated in
      * @param levels the levels that this should NOT generate in
      */
-    public WorldGeneratorDelegate(WorldGenerator gen, int yMin, int yMax, int freq, int... levels) {
+    public WorldGeneratorDelegate(WorldGenerator gen, int yMin, int yMax, int freq, double chance, int... levels) {
         generator = gen;
         nonGenLevels = levels;
         this.yMin = yMin;
         this.yMax = yMax;
         this.freq = freq;
+        this.spawnChance = chance;
 
     }
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+        if (random.nextDouble() > spawnChance) {
+            // must pass the random chance test before generating
+            return;
+        }
         for (int l : nonGenLevels) {
             if (world.provider.worldType == l) {
                 // don't do anything if we're generating in a dimention
@@ -68,6 +75,7 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
                 return;
             }
         }
+
         for (int i = 0; i < freq; i++) {
             generator.generate(world, random,
                                (chunkX * 16) + random.nextInt(16),

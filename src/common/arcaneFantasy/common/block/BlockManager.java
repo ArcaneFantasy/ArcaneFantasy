@@ -86,23 +86,20 @@ public class BlockManager {
     private static void registerGen() {
         int i = 0;
         for (Ore ore : Ore.GEMS) {
-            GameRegistry.registerWorldGenerator(createGenerator(
-                    oreGem.blockID, i, ore.orePerVein, ore.minSpawnHeight,
-                    ore.maxSpawnHeight, ore.spawnRate, ore.nonGenLevels));
+            GameRegistry.registerWorldGenerator(
+                    createGenerator(oreGem.blockID, i, ore));
             ++i;
         }
         i = 0;
         for (Ore ore : Ore.METALS) {
-            GameRegistry.registerWorldGenerator(createGenerator(
-                    oreMetal.blockID, i, ore.orePerVein, ore.minSpawnHeight,
-                    ore.maxSpawnHeight, ore.spawnRate, ore.nonGenLevels));
+            GameRegistry.registerWorldGenerator(
+                    createGenerator(oreMetal.blockID, i, ore));
             ++i;
         }
         i = 0;
         for (Ore ore : Ore.STONES) {
-            GameRegistry.registerWorldGenerator(createGenerator(
-                    stone.blockID, i, ore.orePerVein, ore.minSpawnHeight,
-                    ore.maxSpawnHeight, ore.spawnRate, ore.nonGenLevels));
+            GameRegistry.registerWorldGenerator(
+                    createGenerator(stone.blockID, i, ore));
             ++i;
         }
     }
@@ -112,17 +109,13 @@ public class BlockManager {
      *
      * @param id block id to generate
      * @param meta block metadata to generate
-     * @param veinSize size of the vein to generate
-     * @param yMin minimum y level to generate
-     * @param yMax maximum y level to generate
-     * @param freq how many times the generator should attempt to generate
-     * @param levels level to NOT generate
+     * @param ore the Ore that will be generated
      * @return a IWorldGenerator to the specified specifications
      */
-    private static IWorldGenerator createGenerator(int id, int meta, int veinSize,
-                                                   int yMin, int yMax, int freq,
-                                                   int... levels) {
+    private static IWorldGenerator createGenerator(int id, int meta, Ore ore) {
         return new WorldGeneratorDelegate(
-                new WorldGenMinable(id, meta, veinSize), yMin, yMax, freq, levels);
+                new WorldGenMinable(id, meta, ore.orePerVein),
+                ore.minSpawnHeight, ore.maxSpawnHeight, ore.spawnRate,
+                ore.spawnChance, ore.nonGenLevels);
     }
 }
