@@ -39,7 +39,7 @@ public class ItemManager {
                 .setItemName("metal").setTabToDisplayOn(CreativeTabs.tabMaterials);
         slateFlake = new ItemAFSlateFlake(ItemIds.ITEM_SLATE_FLAKE).setIconCoord(15, 0)
                 .setItemName("slatef").setTabToDisplayOn(CreativeTabs.tabMaterials);
-        chalk = new ItemAFChalk(ItemIds.ITEM_CHALK).setIconCoord(0, 1)
+        chalk = new ItemAFChalk(ItemIds.ITEM_CHALK).setIconCoord(0, 2)
                 .setItemName("chalk").setTabToDisplayOn(CreativeTabs.tabMaterials);
         salt = new ItemAFSalt(ItemIds.ITEM_SALT).setIconCoord(13, 0)
                 .setItemName("salt").setTabToDisplayOn(CreativeTabs.tabMaterials);

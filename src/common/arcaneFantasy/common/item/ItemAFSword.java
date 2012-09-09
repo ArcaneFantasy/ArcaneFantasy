@@ -8,6 +8,8 @@ import net.minecraft.src.Entity;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.ItemSword;
 
+import arcaneFantasy.common.lib.Reference;
+
 /**
  *
  * @author HMPerson1
@@ -34,6 +36,7 @@ public class ItemAFSword extends ItemSword {
         setMaxDamage(material.maxUses);
         this.toolMaterial = material;
         weaponDamage = 4 + material.damageVsEntity;
+        setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
     }
 
     @Override
