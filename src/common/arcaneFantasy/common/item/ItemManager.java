@@ -21,13 +21,13 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  */
 @SuppressWarnings("PublicField")
 public class ItemManager {
-
+    
     public static Item gem;
     public static Item metal;
     public static Item slateFlake;
     public static Item chalk;
     public static Item salt;
-    public static ItemAFSword[] swords;
+    public static ItemAFSword[] swords = new ItemAFSword[EnumAFToolMaterial.values().length];
 
     /**
      * Initializes items.
@@ -56,7 +56,7 @@ public class ItemManager {
                     .append(" Sword").toString());
             ++i;
         }
-
+        
         LanguageRegistry.addName(new ItemStack(gem, 1, 0), "Crystal Gem");
         LanguageRegistry.addName(new ItemStack(gem, 1, 1), "Amethyst Gem");
         LanguageRegistry.addName(new ItemStack(metal, 1, 0), "Copper Ingot");
