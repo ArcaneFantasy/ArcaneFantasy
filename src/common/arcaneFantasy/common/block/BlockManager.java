@@ -42,16 +42,10 @@ public class BlockManager {
                 .setStepSound(Block.soundStoneFootstep).setBlockName("oreMetal");
         stone = new BlockAFStone(BLOCK_STONE, 32).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("afStone");
-        
-        for (int i = 0; i < BlockAFOreGem.GEM_TYPES; i++) {
-            MinecraftForge.setBlockHarvestLevel(oreGem, i, "pickaxe", 3);
-        }
-        for (int i = 0; i < BlockAFOreMetal.METAL_TYPES; i++) {
-            MinecraftForge.setBlockHarvestLevel(oreMetal, i, "pickaxe", 2);
-        }
-        for (int i = 0; i < BlockAFStone.STONE_TYPES; i++) {
-            MinecraftForge.setBlockHarvestLevel(oreMetal, i, "pickaxe", 1);
-        }
+
+        MinecraftForge.setBlockHarvestLevel(oreGem, "pickaxe", 3);
+        MinecraftForge.setBlockHarvestLevel(oreMetal, "pickaxe", 2);
+        MinecraftForge.setBlockHarvestLevel(stone, "pickaxe", 1);
 
         GameRegistry.registerBlock(oreGem, ItemDamageValuedBlock.class);
         GameRegistry.registerBlock(oreMetal, ItemDamageValuedBlock.class);
