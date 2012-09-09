@@ -46,7 +46,7 @@ public class ItemAFSlateFlake extends Item {
      */
     @Override
     public int getIconFromDamage(int par1) {
-        return iconIndex - par1;
+        return iconIndex + par1;
     }
 
     /**

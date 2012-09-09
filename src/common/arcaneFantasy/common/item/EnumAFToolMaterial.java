@@ -11,6 +11,8 @@ package arcaneFantasy.common.item;
 public enum EnumAFToolMaterial {
 
     // TODO: Change these defaults
+    CRYSTAL(3, 1561, 8.0F, 3, 10, false, 0),
+    AMETHYST(3, 1561, 8.0F, 3, 10, false, 1),
     COPPER(2, 250, 6.0F, 2, 14, true, 0),
     PYRITE(2, 250, 6.0F, 2, 14, true, 1),
     MAGNEZE(2, 250, 6.0F, 2, 14, true, 2),
@@ -22,6 +24,7 @@ public enum EnumAFToolMaterial {
     FIRIUM(2, 250, 6.0F, 2, 14, true, 8),
     GLACIUM(2, 250, 6.0F, 2, 14, true, 9),
     FOUDRIUM(2, 250, 6.0F, 2, 14, true, 10);
+    
     public final int harvestLevel;
     public final int maxUses;
     public final float efficiencyOnProperMaterial;

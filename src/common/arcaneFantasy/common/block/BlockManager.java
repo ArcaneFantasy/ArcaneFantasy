@@ -38,9 +38,9 @@ public class BlockManager {
     public static void init() {
         oreGem = new BlockAFOreGem(BLOCK_ORE_GEM, 0).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("oreGem");
-        oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 16).setHardness(3).setResistance(5)
+        oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 2).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("oreMetal");
-        stone = new BlockAFStone(BLOCK_STONE, 32).setHardness(3).setResistance(5)
+        stone = new BlockAFStone(BLOCK_STONE, 16).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("afStone");
 
         MinecraftForge.setBlockHarvestLevel(oreGem, "pickaxe", 3);

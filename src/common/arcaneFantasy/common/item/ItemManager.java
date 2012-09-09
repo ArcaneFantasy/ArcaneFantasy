@@ -35,18 +35,19 @@ public class ItemManager {
     public static void init() {
         gem = new ItemAFGem(ItemIds.ITEM_GEM).setIconCoord(0, 0)
                 .setItemName("gem").setTabToDisplayOn(CreativeTabs.tabMaterials);
-        metal = new ItemAFMetal(ItemIds.ITEM_METAL).setIconCoord(0, 1)
+        metal = new ItemAFMetal(ItemIds.ITEM_METAL).setIconCoord(2, 0)
                 .setItemName("metal").setTabToDisplayOn(CreativeTabs.tabMaterials);
-        slateFlake = new ItemAFSlateFlake(ItemIds.ITEM_SLATE_FLAKE).setIconCoord(15, 0)
+        slateFlake = new ItemAFSlateFlake(ItemIds.ITEM_SLATE_FLAKE).setIconCoord(1, 3)
                 .setItemName("slatef").setTabToDisplayOn(CreativeTabs.tabMaterials);
         chalk = new ItemAFChalk(ItemIds.ITEM_CHALK).setIconCoord(0, 2)
                 .setItemName("chalk").setTabToDisplayOn(CreativeTabs.tabMaterials);
-        salt = new ItemAFSalt(ItemIds.ITEM_SALT).setIconCoord(13, 0)
+        salt = new ItemAFSalt(ItemIds.ITEM_SALT).setIconCoord(0, 3)
                 .setItemName("salt").setTabToDisplayOn(CreativeTabs.tabMaterials);
         int i = 0;
         for (EnumAFToolMaterial material : EnumAFToolMaterial.values()) {
             String name = material.name().toLowerCase(Locale.US);
-            swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ITEM_SWORD + i, material).setIconCoord(i, 3)
+            swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ITEM_SWORD + i, material)
+                    .setIconCoord(i, 1)
                     .setItemName("sword." + name)
                     .setTabToDisplayOn(CreativeTabs.tabCombat);
             // while we're in here, we might as well add the names
