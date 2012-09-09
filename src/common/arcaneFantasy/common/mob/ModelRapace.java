@@ -9,8 +9,16 @@
 
 
 
-package net.minecraft.src;
+package arcaneFantasy.common.mob;
 
+import net.minecraft.src.Entity;
+import net.minecraft.src.ModelBase;
+import net.minecraft.src.ModelRenderer;
+
+/**
+ *
+ * @author RevenantGaze
+ */
 public class ModelRapace extends ModelBase
 {
   //fields
