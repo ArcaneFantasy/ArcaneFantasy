@@ -8,12 +8,11 @@ import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.WorldGenMinable;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 
-import arcaneFantasy.common.item.ItemManager;
 import arcaneFantasy.common.item.ItemAFGem;
 import arcaneFantasy.common.item.ItemAFMetal;
+import arcaneFantasy.common.item.ItemManager;
 import static arcaneFantasy.common.lib.BlockIds.*;
 import arcaneFantasy.common.lib.WorldGen.Ore;
 import arcaneFantasy.common.lib.WorldGeneratorDelegate;
