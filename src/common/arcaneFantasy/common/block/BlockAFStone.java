@@ -8,6 +8,8 @@ import net.minecraft.src.BlockStone;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.MathHelper;
+import net.minecraft.src.MovingObjectPosition;
+import net.minecraft.src.World;
 
 import java.util.*;
 
@@ -88,6 +90,13 @@ public class BlockAFStone extends BlockStone {
         }
     }
 
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
+        // Must be overridden, otherwise the damaged returned will be the damage
+        // of the item dropped, not the damage of the block itself
+        return new ItemStack(idPicked(world, x, y, z), 1, world.getBlockMetadata(x, y, z));
+    }
+    
 //
 //    @Override
 //    // TODO: Remove this debugging code

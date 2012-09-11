@@ -8,8 +8,6 @@ import net.minecraft.src.Block;
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
 
-import java.util.logging.*;
-
 /**
  *
  * @author HMPerson1
