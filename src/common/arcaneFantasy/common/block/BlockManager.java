@@ -124,7 +124,7 @@ public class BlockManager {
     private static IWorldGenerator createGenerator(int id, int meta, Ore ore) {
         return new WorldGeneratorDelegate(
                 new WorldGenMinable(id, meta, ore.orePerVein),
-                ore.minSpawnHeight, ore.maxSpawnHeight, ore.spawnRate,
-                ore.spawnChance, ore.nonGenLevels);
+                ore.minSpawnHeight, ore.maxSpawnHeight, ore.biomes,
+                ore.spawnRate, ore.spawnChance, ore.nonGenLevels);
     }
 }
