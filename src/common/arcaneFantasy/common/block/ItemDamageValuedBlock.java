@@ -9,6 +9,8 @@ import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
 
 /**
+ * An ItemBlock for our blocks that are separated by damage value. The default
+ * ItemBlock acts as if they're all the same thing
  *
  * @author HMPerson1
  */
@@ -26,12 +28,14 @@ public class ItemDamageValuedBlock extends ItemBlock {
     public ItemDamageValuedBlock(int id) {
         super(id);
         this.setHasSubtypes(true);
+        
         // The item id is offset 256 from the block id
         names = getDamagedNames(id + 256);
     }
 
     @Override
     public int getMetadata(int metadata) {
+        // the default impl just returns 0
         return metadata;
     }
 
@@ -55,6 +59,7 @@ public class ItemDamageValuedBlock extends ItemBlock {
      */
     private static String[] getDamagedNames(int id) {
         try {
+            // reflexively find the field
             return (String[]) Block.blocksList[id].getClass().getField("DAMAGED_NAMES").get(null);
         } catch (NoSuchFieldException ex) {
             throw new RuntimeException(ex);

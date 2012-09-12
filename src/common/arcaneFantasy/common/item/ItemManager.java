@@ -33,6 +33,7 @@ public class ItemManager {
      * Initializes items.
      */
     public static void init() {
+        // add the items
         gem = new ItemAFGem(ItemIds.ITEM_GEM).setIconCoord(0, 0)
                 .setItemName("gem").setTabToDisplayOn(CreativeTabs.tabMaterials);
         metal = new ItemAFMetal(ItemIds.ITEM_METAL).setIconCoord(2, 0)
@@ -45,6 +46,7 @@ public class ItemManager {
                 .setItemName("salt").setTabToDisplayOn(CreativeTabs.tabMaterials);
         int i = 0;
         for (EnumAFToolMaterial material : EnumAFToolMaterial.values()) {
+            // easier to loop than to go through EVERY SINGLE SWORD
             String name = material.name().toLowerCase(Locale.US);
             swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ITEM_SWORD + i, material)
                     .setIconCoord(i, 1)
@@ -58,6 +60,7 @@ public class ItemManager {
             ++i;
         }
 
+        // add ALL the names
         LanguageRegistry.addName(new ItemStack(gem, 1, 0), "Quartz");
         LanguageRegistry.addName(new ItemStack(gem, 1, 1), "Amethyst");
         LanguageRegistry.addName(new ItemStack(metal, 1, 0), "Copper Ingot");
@@ -102,6 +105,7 @@ public class ItemManager {
         instance.addRecipe(new ItemStack(BlockManager.stone, 1, 0),
                            RECIPE_SLATE_BLOCK, 'F', new ItemStack(slateFlake, 1, 1));
         for (int i = 0; i < ItemAFChalk.CHALK_TYPES - 1; i++) {
+            //                                      ^^^
             // don't allow bleaching of already white chalk
             instance.addShapelessRecipe(new ItemStack(chalk, 1, i),
                                         new ItemStack(Item.dyePowder, 1, i),

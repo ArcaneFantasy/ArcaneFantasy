@@ -76,6 +76,7 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
             }
         }
 
+        // ONLY after all that, can we begin to generate the actual ore veins
         for (int i = 0; i < freq; i++) {
             generator.generate(world, random,
                                (chunkX * 16) + random.nextInt(16),

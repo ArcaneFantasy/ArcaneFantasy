@@ -52,12 +52,16 @@ public class BlockAFStone extends BlockStone {
     public int idDropped(int meta, Random random, int par3) {
         switch (meta) {
             case 0:
+                // slate drops slate flakes
                 return ItemManager.slateFlake.shiftedIndex;
             case 1:
+                // salt drops salt grains
                 return ItemManager.salt.shiftedIndex;
             case 4:
+                // chalk drops chalk pieces
                 return ItemManager.chalk.shiftedIndex;
             default:
+                // everything else drops the block
                 return blockID;
         }
     }
@@ -67,10 +71,14 @@ public class BlockAFStone extends BlockStone {
         switch (damage) {
             case 0:
             case 1:
+                // slate & salt drop items with individual ids 
                 return 0;
             case 4:
+                // white chalk has damage value of 15
                 return 15;
             default:
+                // otherwise, return the damage value of the block
+                // becuase the block is what will be dropped 
                 return damage;
         }
     }
@@ -78,7 +86,7 @@ public class BlockAFStone extends BlockStone {
     @Override
     public int quantityDropped(int meta, int fortune, Random random) {
         int quantityDropped = random.nextInt(5) + 11;
-        // TODO: May need some work...
+        // TODO: May need some tweaking...
         switch (meta) {
             case 0:
             case 1:

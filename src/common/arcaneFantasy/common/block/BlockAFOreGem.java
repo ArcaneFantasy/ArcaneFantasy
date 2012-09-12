@@ -7,13 +7,12 @@ package arcaneFantasy.common.block;
 import net.minecraft.src.BlockOre;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.World;
 
 import java.util.*;
 
 import arcaneFantasy.common.item.ItemAFGem;
-import arcaneFantasy.common.item.ItemManager;
 import static arcaneFantasy.common.item.ItemAFGem.*;
+import arcaneFantasy.common.item.ItemManager;
 import arcaneFantasy.common.lib.Reference;
 
 /**
@@ -49,6 +48,7 @@ public class BlockAFOreGem extends BlockOre {
 
     @Override
     public int idDropped(int par1, Random par2Random, int par3) {
+        // don't drop the block, drop the gem
         return ItemManager.gem.shiftedIndex;
     }
 
