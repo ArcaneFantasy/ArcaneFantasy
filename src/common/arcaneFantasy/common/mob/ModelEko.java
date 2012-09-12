@@ -11,7 +11,6 @@ package arcaneFantasy.common.mob;
 import net.minecraft.src.Entity;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.ModelRenderer;
-
 /**
  *
  * @author Hykarunogo
