@@ -16,7 +16,7 @@ import net.minecraft.src.ModelRenderer;
 
 /**
  *
- * @author Hykarunogo
+ * @author Hykarunogo/RevenantGaze
  */
 public class ModelEko extends ModelBase
 {
