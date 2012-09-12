@@ -24,7 +24,8 @@ public class ItemAFChalk extends Item {
      */
     public static final int CHALK_TYPES = 16;
     /**
-     * Names of all the chalk colors, indexed by damage value.
+     * Names of all the chalk colors, indexed by damage value. These are the
+     * same as dyes
      */
     public static final String[] CHALK_NAMES = {
         "black", "red", "green", "brown", "blue", "purple", "cyan", "silver",

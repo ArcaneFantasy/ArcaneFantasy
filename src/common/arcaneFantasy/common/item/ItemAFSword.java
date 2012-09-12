@@ -37,11 +37,12 @@ public class ItemAFSword extends ItemSword {
      */
     public ItemAFSword(int id, EnumAFToolMaterial material) {
         super(id, EnumToolMaterial.IRON); // MUST be called
+        setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
+
         // Overwrite what super() just did:
         setMaxDamage(material.maxUses);
         this.toolMaterial = material;
         weaponDamage = 4 + material.damageVsEntity;
-        setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
     }
 
     @Override
@@ -63,6 +64,7 @@ public class ItemAFSword extends ItemSword {
                         for (int k = tgtZ - 2; k < tgtZ + 2; k++) {
                             int id = world.getBlockId(i, j, k);
                             if ((Block.blocksList[id] == null || Block.blocksList[id].isBlockReplaceable(world, i, j, k))
+                                    // hard coded list of all the replacable blocks
                                     || id == Block.waterStill.blockID
                                     || id == Block.waterMoving.blockID
                                     || id == Block.snow.blockID
@@ -88,11 +90,13 @@ public class ItemAFSword extends ItemSword {
 
     @Override
     public int getDamageVsEntity(Entity par1Entity) {
+        // override ItemSword
         return weaponDamage;
     }
 
     @Override
     public int getItemEnchantability() {
+        // override ItemSword
         return toolMaterial.enchantability;
     }
 
@@ -103,6 +107,7 @@ public class ItemAFSword extends ItemSword {
      */
     @Override
     public String func_77825_f() {
+        // used by furnaces to see if this is a wooden tool
         return toolMaterial.toString();
     }
 }

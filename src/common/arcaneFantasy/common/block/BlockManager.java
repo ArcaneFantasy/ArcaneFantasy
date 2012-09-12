@@ -35,6 +35,7 @@ public class BlockManager {
      * Registers blocks and their natural spawns.
      */
     public static void init() {
+        // add blocks
         oreGem = new BlockAFOreGem(BLOCK_ORE_GEM, 0).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("oreGem");
         oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 2).setHardness(3).setResistance(5)
@@ -42,14 +43,16 @@ public class BlockManager {
         stone = new BlockAFStone(BLOCK_STONE, 16).setHardness(3).setResistance(5)
                 .setStepSound(Block.soundStoneFootstep).setBlockName("afStone");
 
-        MinecraftForge.setBlockHarvestLevel(oreGem, "pickaxe", 3);
-        MinecraftForge.setBlockHarvestLevel(oreMetal, "pickaxe", 2);
-        MinecraftForge.setBlockHarvestLevel(stone, "pickaxe", 1);
+        MinecraftForge.setBlockHarvestLevel(oreGem, "pickaxe", 3); // diamond pick
+        MinecraftForge.setBlockHarvestLevel(oreMetal, "pickaxe", 2); // iron
+        MinecraftForge.setBlockHarvestLevel(stone, "pickaxe", 1); // stone
 
+        // register the blocks so the game will recognize them
         GameRegistry.registerBlock(oreGem, ItemDamageValuedBlock.class);
         GameRegistry.registerBlock(oreMetal, ItemDamageValuedBlock.class);
         GameRegistry.registerBlock(stone, ItemDamageValuedBlock.class);
 
+        // add ALL the names 
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 0), "Quartz Ore");
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 1), "Amethyst Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 0), "Copper Ore");
@@ -69,6 +72,7 @@ public class BlockManager {
         LanguageRegistry.addName(new ItemStack(stone, 1, 3), "Magnitite");
         LanguageRegistry.addName(new ItemStack(stone, 1, 4), "Chalk");
 
+        // register ore generators
         registerGen();
     }
 
@@ -120,7 +124,7 @@ public class BlockManager {
     private static IWorldGenerator createGenerator(int id, int meta, Ore ore) {
         return new WorldGeneratorDelegate(
                 new WorldGenMinable(id, meta, ore.orePerVein),
-                ore.minSpawnHeight, ore.maxSpawnHeight, ore.spawnRate,
-                ore.spawnChance, ore.nonGenLevels);
+                ore.minSpawnHeight, ore.maxSpawnHeight, ore.biomes,
+                ore.spawnRate, ore.spawnChance, ore.nonGenLevels);
     }
 }

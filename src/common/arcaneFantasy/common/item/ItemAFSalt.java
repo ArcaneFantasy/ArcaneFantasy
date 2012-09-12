@@ -9,6 +9,7 @@ import net.minecraft.src.Item;
 import arcaneFantasy.common.lib.Reference;
 
 /**
+ * Nothin' special here.
  *
  * @author HMPerson1
  */

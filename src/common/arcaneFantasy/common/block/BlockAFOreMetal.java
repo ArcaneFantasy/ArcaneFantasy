@@ -49,6 +49,9 @@ public class BlockAFOreMetal extends BlockOre {
     protected int damageDropped(int damage) {
         return damage;
     }
+    // don't override idDropped, because we want to drop the ore block, not 
+    // the ingot
+
 //
 //    @Override
 //    // TODO: Remove this debugging code
@@ -56,7 +59,6 @@ public class BlockAFOreMetal extends BlockOre {
 //        System.out.println(String.format("Ore %s: %d, %d, %d", METAL_NAMES[par1World.getBlockMetadata(par2, par3, par4)], par2, par3, par4));
 //        super.onBlockAdded(par1World, par2, par3, par4);
 //    }
-
     /**
      * {@inheritDoc}
      *

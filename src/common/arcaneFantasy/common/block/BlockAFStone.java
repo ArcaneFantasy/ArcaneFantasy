@@ -8,6 +8,8 @@ import net.minecraft.src.BlockStone;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.MathHelper;
+import net.minecraft.src.MovingObjectPosition;
+import net.minecraft.src.World;
 
 import java.util.*;
 
@@ -50,12 +52,16 @@ public class BlockAFStone extends BlockStone {
     public int idDropped(int meta, Random random, int par3) {
         switch (meta) {
             case 0:
+                // slate drops slate flakes
                 return ItemManager.slateFlake.shiftedIndex;
             case 1:
+                // salt drops salt grains
                 return ItemManager.salt.shiftedIndex;
             case 4:
+                // chalk drops chalk pieces
                 return ItemManager.chalk.shiftedIndex;
             default:
+                // everything else drops the block
                 return blockID;
         }
     }
@@ -65,10 +71,14 @@ public class BlockAFStone extends BlockStone {
         switch (damage) {
             case 0:
             case 1:
+                // slate & salt drop items with individual ids 
                 return 0;
             case 4:
+                // white chalk has damage value of 15
                 return 15;
             default:
+                // otherwise, return the damage value of the block
+                // becuase the block is what will be dropped 
                 return damage;
         }
     }
@@ -76,7 +86,7 @@ public class BlockAFStone extends BlockStone {
     @Override
     public int quantityDropped(int meta, int fortune, Random random) {
         int quantityDropped = random.nextInt(5) + 11;
-        // TODO: May need some work...
+        // TODO: May need some tweaking...
         switch (meta) {
             case 0:
             case 1:
@@ -88,6 +98,13 @@ public class BlockAFStone extends BlockStone {
         }
     }
 
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z) {
+        // Must be overridden, otherwise the damaged returned will be the damage
+        // of the item dropped, not the damage of the block itself
+        return new ItemStack(idPicked(world, x, y, z), 1, world.getBlockMetadata(x, y, z));
+    }
+    
 //
 //    @Override
 //    // TODO: Remove this debugging code

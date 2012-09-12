@@ -4,9 +4,7 @@
  */
 package arcaneFantasy.common.lib;
 
-import java.lang.reflect.Field;
 import java.util.*;
-import java.util.logging.*;
 
 /**
  * Handy reference sheet.
