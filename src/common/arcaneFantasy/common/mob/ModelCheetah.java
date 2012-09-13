@@ -17,7 +17,7 @@ import net.minecraft.src.ModelRenderer;
  *
  * @author Hykarunogo/RevenantGaze
  */
-public class Modelfauve extends ModelBase
+public class ModelCheetah extends ModelBase
 {
   //fields
     ModelRenderer body_1;
@@ -45,7 +45,7 @@ public class Modelfauve extends ModelBase
     ModelRenderer Shape1;
     ModelRenderer Shape1;
 
-  public Modelfauve()
+  public ModelCheetah()
   {
     textureWidth = 88;
     textureHeight = 34;
