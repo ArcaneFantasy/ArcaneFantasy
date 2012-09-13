@@ -5,6 +5,8 @@
 package arcaneFantasy.common.lib;
 
 import com.google.common.collect.Sets;
+import com.google.common.primitives.Bytes;
+import com.google.common.primitives.Ints;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenerator;
@@ -69,14 +71,12 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
         if (biomes != null) {
             // null means ignore biomes
 
-            this.biomes = Collections.unmodifiableSet(new HashSet<Integer>());
+            Set<Integer> tmp = new HashSet<Integer>();
 
-            // box the ints into Integers
-            Integer[] tmp = new Integer[biomes.length];
-            System.arraycopy(biomes, 0, tmp, 0, biomes.length);
-
-            // add all the Integers to the Set
-            this.biomes.addAll(Arrays.asList(tmp));
+            // add all the ints to the Set (boxing done automatically)
+            tmp.addAll(Ints.asList(biomes));
+            // make it unmodifiable and assign it
+            this.biomes = Collections.unmodifiableSet(tmp);
         } else {
             this.biomes = null;
         }
@@ -89,6 +89,7 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
             // must pass the random test before generating
             return;
         }
+
         // iterate through every element to see if any of them are the same
         // as the one we're in 
         for (int level : nonGenLevels) {
@@ -98,29 +99,29 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
                 return;
             }
         }
+
         // do the biome check last, as its the most computationally expensive
         if (biomes != null) {
             // null means ignore biomes
+
             // get all the biomes
             byte[] tmp = world.getChunkFromChunkCoords(chunkX, chunkZ).getBiomeArray();
-
-            // box bytes to Integers
-            Integer[] tmp2 = new Integer[tmp.length];
-            System.arraycopy(tmp, 0, tmp2, 0, tmp.length);
 
             // most chunks will have at most 3 biomes, so set init capacity to 3
             // resizing is a HUGE performance issue
             Set<Integer> chunkBiomes = new HashSet<Integer>(3);
-            // add all the elements from the array
-            chunkBiomes.addAll(Arrays.asList(tmp2));
 
-            // FINALLY now check if there are biomes in common
-            if (Sets.intersection(biomes, chunkBiomes).isEmpty()) {
-                // if there are no biomes in common between the ones in this chunk
-                // and the ones we generate in, just skip it
+            // add all the elements from the array (and box the bytes)
+            chunkBiomes.addAll(Ints.asList(Ints.toArray(Bytes.asList(tmp))));
+
+            // now check if there are biomes in common
+            if (Sets.intersection(chunkBiomes, biomes).isEmpty()) {
+                // if there are no biomes in common between the ones in this
+                // chunk and the ones we generate in, just skip it
                 return;
             }
         }
+
         // ONLY after all that, can we begin to generate the actual ore veins
         for (int i = 0; i < freq; i++) {
             generator.generate(world, random,

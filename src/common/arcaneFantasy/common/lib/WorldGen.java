@@ -14,7 +14,7 @@ public class WorldGen {
 
     // None of our stuff should spawn in the nether or end
     public static final int[] NON_GEN_LEVELS = {1, -1};
-    public static final int[] ICY_BIOMES = {10, 11, 12, 13, 19};
+    public static final int[] ICY_BIOMES = {5, 10, 11, 12, 13, 19};
 
     public static enum Ore {
 
