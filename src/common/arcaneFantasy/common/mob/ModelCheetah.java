@@ -34,7 +34,7 @@ public class ModelCheetah extends ModelBase
     ModelRenderer leg_GA1;
     ModelRenderer leg_DA1;
     ModelRenderer leg_GA2;
-    ModelRenderer leg_GA2;
+    ModelRenderer leg_DA2;
     ModelRenderer Leg_GAR1;
     ModelRenderer Leg_DAR1;
     ModelRenderer Leg_GAR2;
@@ -139,7 +139,7 @@ public class ModelCheetah extends ModelBase
       leg_GA2.setRotationPoint(-4F, 19F, -5F);
       leg_GA2.setTextureSize(88, 34);
       leg_GA2.mirror = true;
-      setRotation(leg_GA2, -0.1745329F, 0F, 0F);
+      setRotation(leg_DA2, -0.1745329F, 0F, 0F);
       Leg_GAR1 = new ModelRenderer(this, 58, 27);
       Leg_GAR1.addBox(0F, -1F, -1F, 2, 3, 4);
       Leg_GAR1.setRotationPoint(2F, 13F, 7F);
