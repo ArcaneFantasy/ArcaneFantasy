@@ -7,6 +7,7 @@ package arcaneFantasy.common.lib;
 import com.google.common.collect.Sets;
 import com.google.common.primitives.Bytes;
 import com.google.common.primitives.Ints;
+
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenerator;
@@ -32,7 +33,7 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
      */
     private final int[] nonGenLevels;
     /**
-     * The list of biomes to generate in (or null for all biomes)
+     * The list of biomes to generate in. (Or {@code null} for all biomes)
      */
     private final Set<Integer> biomes;
     /**
@@ -47,6 +48,9 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
      * How frequent we should try to gen.
      */
     private final int freq;
+    /**
+     * The chance that a ore will generate per chunk.
+     */
     private final double spawnChance;
 
     /**
@@ -84,12 +88,6 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-        // random test:
-        if (random.nextDouble() > spawnChance) {
-            // must pass the random test before generating
-            return;
-        }
-
         // iterate through every element to see if any of them are the same
         // as the one we're in 
         for (int level : nonGenLevels) {
@@ -100,35 +98,79 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
             }
         }
 
+        // random test:
+        if (random.nextDouble() > spawnChance) {
+            // must pass the random test before generating
+            return;
+        }
         // do the biome check last, as its the most computationally expensive
+        if (!checkBiomes(world, chunkX, chunkZ, biomes)) {
+            return;
+        }
+
+        // cache coords
+        final int x = chunkX * 16;
+        final int z = chunkZ * 16;
+        // ONLY after all that, can we begin to generate the actual ore veins
+        for (int i = 0; i < freq; i++) {
+            generator.generate(world, random,
+                               x + random.nextInt(16),
+                               yMin + random.nextInt(yMax - yMin),
+                               z + random.nextInt(16));
+
+        }
+    }
+    /**
+     * A mutable Set for random temporary calculations.
+     */
+    // We do this so we don't have to make many, many temporary calulations.
+    private static final HashSet<Integer> scratchSet = new HashSet<Integer>(4);
+
+    /**
+     * Checks whether this chunk has the biomes required by the ore.
+     *
+     * @param world the world we're generating for
+     * @param chunkX the chunk-x that we're generating for
+     * @param chunkZ the chunk-y that we're generating for
+     * @param biomes the biomes allowed to be generated in
+     * @return whether or not to generate in this chunk
+     */
+    private static boolean checkBiomes(World world, int chunkX, int chunkZ, Set<Integer> biomes) {
         if (biomes != null) {
             // null means ignore biomes
 
             // get all the biomes
             byte[] tmp = world.getChunkFromChunkCoords(chunkX, chunkZ).getBiomeArray();
 
-            // most chunks will have at most 3 biomes, so set init capacity to 3
-            // resizing is a HUGE performance issue
-            Set<Integer> chunkBiomes = new HashSet<Integer>(3);
+            // clear our scratch set
+            scratchSet.clear();
 
             // add all the elements from the array (and box the bytes)
-            chunkBiomes.addAll(Ints.asList(Ints.toArray(Bytes.asList(tmp))));
+            scratchSet.addAll(Ints.asList(byteArrToIntArr(tmp)));
 
             // now check if there are biomes in common
-            if (Sets.intersection(chunkBiomes, biomes).isEmpty()) {
-                // if there are no biomes in common between the ones in this
-                // chunk and the ones we generate in, just skip it
-                return;
+            if (Sets.intersection(scratchSet, biomes).isEmpty()) {
+                // if there are no biomes in common between the two arrays
+                return false;
             }
         }
+        // oterwise do generate
+        return true;
+    }
 
-        // ONLY after all that, can we begin to generate the actual ore veins
-        for (int i = 0; i < freq; i++) {
-            generator.generate(world, random,
-                               (chunkX * 16) + random.nextInt(16),
-                               yMin + random.nextInt(yMax - yMin),
-                               (chunkZ * 16) + random.nextInt(16));
-
+    /**
+     * Converts a byte array to an int array.
+     *
+     * @param arr a byte array
+     * @return an int array with identically indexed identical values
+     */
+    // regular for loop with cached length was tested to be the fastest
+    private static int[] byteArrToIntArr(byte[] arr) {
+        int length = arr.length;
+        int[] ret = new int[length];
+        for (int i = 0; i < length; i++) {
+            ret[i] = arr[i];
         }
+        return ret;
     }
 }
