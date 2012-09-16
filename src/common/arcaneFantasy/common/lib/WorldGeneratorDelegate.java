@@ -4,10 +4,9 @@
  */
 package arcaneFantasy.common.lib;
 
-import com.google.common.collect.Sets;
-import com.google.common.primitives.Bytes;
-import com.google.common.primitives.Ints;
+import com.google.common.base.Predicate;
 
+import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldGenerator;
@@ -33,9 +32,9 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
      */
     private final int[] nonGenLevels;
     /**
-     * The list of biomes to generate in. (Or {@code null} for all biomes)
+     * The Predicate for determining if a given biome is eligible.
      */
-    private final Set<Integer> biomes;
+    private final Predicate<? super BiomeGenBase> biomes;
     /**
      * Minimum y level to gen.
      */
@@ -59,33 +58,22 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
      * @param gen the world generator to delegate calls to
      * @param yMin the minimum y-coordinate to generate in
      * @param yMax the maximum y-coordinate to generate in
-     * @param biomes the value of biomes
+     * @param biomes the predicate determining which biomes to generate in
      * @param freq the number of attempts made for the block to generate in
      * @param chance the chance that a given chunk will be generated in
      * @param levels the levels that this should NOT generate in
      */
-    public WorldGeneratorDelegate(WorldGenerator gen, int yMin, int yMax, int[] biomes, int freq, double chance, int... levels) {
+    public WorldGeneratorDelegate(WorldGenerator gen, int yMin, int yMax, Predicate<? super BiomeGenBase> biomes, int freq, double chance, int... levels) {
         generator = gen;
         nonGenLevels = levels;
         this.yMin = yMin;
         this.yMax = yMax;
+        this.biomes = biomes;
         this.freq = freq;
         this.spawnChance = chance;
-
-        if (biomes != null) {
-            // null means ignore biomes
-
-            Set<Integer> tmp = new HashSet<Integer>();
-
-            // add all the ints to the Set (boxing done automatically)
-            tmp.addAll(Ints.asList(biomes));
-            // make it unmodifiable and assign it
-            this.biomes = Collections.unmodifiableSet(tmp);
-        } else {
-            this.biomes = null;
-        }
     }
 
+    // This will be called HUNDREDS of times so it needs to be very, very fast.
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
         // iterate through every element to see if any of them are the same
@@ -120,11 +108,6 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
 
         }
     }
-    /**
-     * A mutable Set for random temporary calculations.
-     */
-    // We do this so we don't have to make many, many temporary calulations.
-    private static final HashSet<Integer> scratchSet = new HashSet<Integer>(4);
 
     /**
      * Checks whether this chunk has the biomes required by the ore.
@@ -132,45 +115,18 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
      * @param world the world we're generating for
      * @param chunkX the chunk-x that we're generating for
      * @param chunkZ the chunk-y that we're generating for
-     * @param biomes the biomes allowed to be generated in
+     * @param biomes the biome predicate
      * @return whether or not to generate in this chunk
      */
-    private static boolean checkBiomes(World world, int chunkX, int chunkZ, Set<Integer> biomes) {
-        if (biomes != null) {
-            // null means ignore biomes
-
-            // get all the biomes
-            byte[] tmp = world.getChunkFromChunkCoords(chunkX, chunkZ).getBiomeArray();
-
-            // clear our scratch set
-            scratchSet.clear();
-
-            // add all the elements from the array (and box the bytes)
-            scratchSet.addAll(Ints.asList(byteArrToIntArr(tmp)));
-
-            // now check if there are biomes in common
-            if (Sets.intersection(scratchSet, biomes).isEmpty()) {
-                // if there are no biomes in common between the two arrays
-                return false;
+    private static boolean checkBiomes(World world, int chunkX, int chunkZ, Predicate<? super BiomeGenBase> biomes) {
+        byte[] biomeArr = world.getChunkFromChunkCoords(chunkX, chunkZ).getBiomeArray();
+        for (byte b : biomeArr) {
+            if (biomes.apply(BiomeGenBase.biomeList[b])) {
+                // if just one matches, the whole chunk is eligible
+                return true;
             }
         }
-        // oterwise do generate
-        return true;
-    }
-
-    /**
-     * Converts a byte array to an int array.
-     *
-     * @param arr a byte array
-     * @return an int array with identically indexed identical values
-     */
-    // regular for loop with cached length was tested to be the fastest
-    private static int[] byteArrToIntArr(byte[] arr) {
-        int length = arr.length;
-        int[] ret = new int[length];
-        for (int i = 0; i < length; i++) {
-            ret[i] = arr[i];
-        }
-        return ret;
+        // if none match, return false
+        return false;
     }
 }
