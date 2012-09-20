@@ -43,7 +43,7 @@ public class ModelCheetah extends ModelBase
     ModelRenderer Leg_DAR_3;
     ModelRenderer tail;
     ModelRenderer Shape1;
-    ModelRenderer Shape1;
+    ModelRenderer Shape2;
 
   public ModelCheetah()
   {
@@ -134,11 +134,11 @@ public class ModelCheetah extends ModelBase
       leg_GA2.setTextureSize(88, 34);
       leg_GA2.mirror = true;
       setRotation(leg_GA2, -0.1745329F, 0F, 0F);
-      leg_GA2 = new ModelRenderer(this, 78, 27);
-      leg_GA2.addBox(-1F, 0F, -1F, 2, 5, 2);
-      leg_GA2.setRotationPoint(-4F, 19F, -5F);
-      leg_GA2.setTextureSize(88, 34);
-      leg_GA2.mirror = true;
+      leg_DA2 = new ModelRenderer(this, 78, 27);
+      leg_DA2.addBox(-1F, 0F, -1F, 2, 5, 2);
+      leg_DA2.setRotationPoint(-4F, 19F, -5F);
+      leg_DA2.setTextureSize(88, 34);
+      leg_DA2.mirror = true;
       setRotation(leg_DA2, -0.1745329F, 0F, 0F);
       Leg_GAR1 = new ModelRenderer(this, 58, 27);
       Leg_GAR1.addBox(0F, -1F, -1F, 2, 3, 4);
@@ -188,12 +188,12 @@ public class ModelCheetah extends ModelBase
       Shape1.setTextureSize(88, 34);
       Shape1.mirror = true;
       setRotation(Shape1, 0F, 0F, 0F);
-      Shape1 = new ModelRenderer(this, 54, 17);
-      Shape1.addBox(-1F, 0F, -2F, 2, 1, 2);
-      Shape1.setRotationPoint(3F, 23F, 8F);
-      Shape1.setTextureSize(88, 34);
-      Shape1.mirror = true;
-      setRotation(Shape1, 0F, 0F, 0F);
+      Shape2 = new ModelRenderer(this, 54, 17);
+      Shape2.addBox(-1F, 0F, -2F, 2, 1, 2);
+      Shape2.setRotationPoint(3F, 23F, 8F);
+      Shape2.setTextureSize(88, 34);
+      Shape2.mirror = true;
+      setRotation(Shape2, 0F, 0F, 0F);
   }
 
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
@@ -214,7 +214,7 @@ public class ModelCheetah extends ModelBase
     leg_GA1.render(f5);
     leg_DA1.render(f5);
     leg_GA2.render(f5);
-    leg_GA2.render(f5);
+    leg_DA2.render(f5);
     Leg_GAR1.render(f5);
     Leg_DAR1.render(f5);
     Leg_GAR2.render(f5);
@@ -223,7 +223,7 @@ public class ModelCheetah extends ModelBase
     Leg_DAR_3.render(f5);
     tail.render(f5);
     Shape1.render(f5);
-    Shape1.render(f5);
+    Shape2.render(f5);
   }
 
   private void setRotation(ModelRenderer model, float x, float y, float z)
