@@ -9,9 +9,10 @@
 
 
 
-package arcaneFantasy.common.mob;
+package arcaneFantasy.common.entity.mob.model;
 
 import net.minecraft.src.Entity;
+import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.ModelRenderer;
 
@@ -158,6 +159,8 @@ public class ModelRapace extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5);
+        Right_Wing.rotateAngleZ = f2;
+        Left_Wing.rotateAngleZ = -f2;
   }
 
 }

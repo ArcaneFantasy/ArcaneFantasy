@@ -49,4 +49,20 @@ public class Reference {
      * File name of the block sprite sheet.
      */
     public static final String BLOCK_SPRITE_SHEET = "blocks.png";
+    /**
+     * Directory that the textures are in.
+     */
+    public static final String TEXTURE_LOCATION = "/arcaneFantasy/art/RevenantGaze/";
+    /**
+     * File name of the Rapace texture.
+     */
+    public static final String RAPACE_TEXTURE = "Rapace.png";
+    /**
+     * File name of the Cheetah texture.
+     */
+    public static final String CHEETAH_TEXTURE = "Cheetah.png";
+    /**
+     * File name of the Eko texture.
+     */
+    public static final String EKO_TEXTURE = "Eko.png";
 }

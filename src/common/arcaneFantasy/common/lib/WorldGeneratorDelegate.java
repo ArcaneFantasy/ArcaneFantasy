@@ -13,6 +13,7 @@ import net.minecraft.src.WorldGenerator;
 
 import java.util.*;
 
+import arcaneFantasy.common.entity.mob.EntityRapace;
 import cpw.mods.fml.common.IWorldGenerator;
 
 /**
@@ -107,6 +108,9 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
                                z + random.nextInt(16));
 
         }
+        EntityRapace entityRapace = new EntityRapace(world);
+        entityRapace.setPosition(x, 100, z);
+        world.spawnEntityInWorld(entityRapace);
     }
 
     /**

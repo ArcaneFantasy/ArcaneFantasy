@@ -7,6 +7,7 @@ package arcaneFantasy.common;
 import arcaneFantasy.common.block.BlockManager;
 import arcaneFantasy.common.core.CommonProxy;
 import arcaneFantasy.common.core.handlers.ConfigurationHandler;
+import arcaneFantasy.common.entity.EntityManager;
 import arcaneFantasy.common.item.ItemManager;
 import arcaneFantasy.common.lib.Reference;
 import arcaneFantasy.common.network.PacketHandler;
@@ -69,6 +70,9 @@ public class ArcaneFantasy {
     public void init(FMLInitializationEvent evt) {
         // Load texture files
         proxy.preloadTextures();
+        
+        // Init entities
+        EntityManager.init();
 
         // Init blocks/spawns
         BlockManager.init();

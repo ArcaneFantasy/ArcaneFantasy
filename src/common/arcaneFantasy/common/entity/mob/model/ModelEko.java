@@ -8,7 +8,7 @@
 
 
 
-package arcaneFantasy.common.mob;
+package arcaneFantasy.common.entity.mob.model;
 
 import net.minecraft.src.Entity;
 import net.minecraft.src.ModelBase;
