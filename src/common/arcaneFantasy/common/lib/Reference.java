@@ -56,13 +56,13 @@ public class Reference {
     /**
      * File name of the Rapace texture.
      */
-    public static final String RAPACE_TEXTURE = "Rapace.png";
+    public static final String RAPACE_TEXTURE = "ModelRapace.png";
     /**
      * File name of the Cheetah texture.
      */
-    public static final String CHEETAH_TEXTURE = "Cheetah.png";
+    public static final String CHEETAH_TEXTURE = "ModelCheetah.png";
     /**
      * File name of the Eko texture.
      */
-    public static final String EKO_TEXTURE = "Eko.png";
+    public static final String EKO_TEXTURE = "ModelEko.png";
 }
