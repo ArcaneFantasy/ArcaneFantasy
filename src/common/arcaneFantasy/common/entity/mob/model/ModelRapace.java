@@ -98,14 +98,16 @@ public class ModelRapace extends ModelBase {
         setRotation(Right_Wing, 0F, 0F, 0F);
         Left_Wing_Tip = new ModelRenderer(this, 28, 29);
         Left_Wing_Tip.addBox(0F, 0F, 0F, 9, 1, 5);
-        Left_Wing_Tip.setRotationPoint(-12F, 1F, 12F);
+        Left_Wing_Tip.setRotationPoint(11, 0, 1);
         Left_Wing_Tip.setTextureSize(56, 52);
+        Left_Wing.addChild(Left_Wing_Tip);
         Left_Wing_Tip.mirror = true;
-        setRotation(Left_Wing_Tip, 0F, 3.141593F, 0F);
+        setRotation(Left_Wing_Tip, 0F, 0F, 0F);
         Right_Wing_Tip = new ModelRenderer(this, 28, 23);
         Right_Wing_Tip.addBox(0F, 0F, 0F, 9, 1, 5);
-        Right_Wing_Tip.setRotationPoint(17F, 1F, 7F);
+        Right_Wing_Tip.setRotationPoint(11, 0, 1);
         Right_Wing_Tip.setTextureSize(56, 52);
+        Right_Wing.addChild(Right_Wing_Tip);
         Right_Wing_Tip.mirror = true;
         setRotation(Right_Wing_Tip, 0F, 0F, 0F);
         Tail = new ModelRenderer(this, 17, 23);
@@ -135,8 +137,6 @@ public class ModelRapace extends ModelBase {
         Left_Foot.render(f5);
         Left_Wing.render(f5);
         Right_Wing.render(f5);
-        Left_Wing_Tip.render(f5);
-        Right_Wing_Tip.render(f5);
         Tail.render(f5);
         Tail_2.render(f5);
     }
@@ -151,6 +151,8 @@ public class ModelRapace extends ModelBase {
         super.setRotationAngles(f, f1, f2, f3, f4, f5);
         Right_Wing.rotateAngleZ = f2;
         Left_Wing.rotateAngleZ = -f2;
-
+        float tip = f2 / 2;
+        Right_Wing_Tip.rotateAngleZ = tip;
+        Left_Wing_Tip.rotateAngleZ = tip;
     }
 }
