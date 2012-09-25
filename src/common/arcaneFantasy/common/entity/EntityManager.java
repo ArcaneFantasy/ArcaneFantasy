@@ -4,6 +4,9 @@
  */
 package arcaneFantasy.common.entity;
 
+import net.minecraft.src.BiomeGenBase;
+import net.minecraft.src.EnumCreatureType;
+
 import arcaneFantasy.common.entity.mob.EntityRapace;
 import arcaneFantasy.common.entity.mob.model.ModelRapace;
 import arcaneFantasy.common.entity.renderers.RenderRapace;
@@ -23,6 +26,7 @@ public class EntityManager {
     @SuppressWarnings("unchecked") // FORGE!!!! Y U FORGET ABOUT GENERICS?!?!
     public static void init() {
         EntityRegistry.registerGlobalEntityID(EntityRapace.class, "Rapace", EntityIds.ENTITY_RAPACE);
+        EntityRegistry.addSpawn(EntityRapace.class, 1, 0, 256, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.forest);
         RenderingRegistry.registerEntityRenderingHandler(EntityRapace.class, new RenderRapace(new ModelRapace(), 0.7f));
     }
 }
