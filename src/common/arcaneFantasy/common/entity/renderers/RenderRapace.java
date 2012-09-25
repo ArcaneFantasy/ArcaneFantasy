@@ -28,14 +28,6 @@ public class RenderRapace extends RenderLiving {
     }
 
     /**
-     *
-     * Defines the hitbox for the Rapace
-     */
-    protected void preRenderScale(EntityRapace entity, float f){
-                GL11.glScalef(1F, 1F, 1F);
-        }
-
-    /**
      * Returns the rotation of the wings for a given Rapace
      *
      * @param rapace the Rapace
