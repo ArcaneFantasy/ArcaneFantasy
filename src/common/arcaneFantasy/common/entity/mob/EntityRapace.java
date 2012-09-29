@@ -45,6 +45,7 @@ public class EntityRapace extends EntityAnimal {
      */
     public EntityRapace(World par1World) {
         super(par1World);
+        setSize(1.0F, 0.2F);
         texture = Reference.TEXTURE_LOCATION + Reference.RAPACE_TEXTURE;
         tasks.addTask(0, new EntityAIPanic(this, SPEED * 1.5F));
         tasks.addTask(1, new EntityAIWander(this, SPEED));
@@ -54,6 +55,7 @@ public class EntityRapace extends EntityAnimal {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override
