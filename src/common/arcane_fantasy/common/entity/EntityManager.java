@@ -2,15 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.entity;
+package arcane_fantasy.common.entity;
 
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.EnumCreatureType;
 
-import arcaneFantasy.common.entity.mob.EntityRapace;
-import arcaneFantasy.common.entity.mob.model.ModelRapace;
-import arcaneFantasy.common.entity.renderers.RenderRapace;
-import arcaneFantasy.common.lib.EntityIds;
+import arcane_fantasy.common.entity.mob.EntityRapace;
+import arcane_fantasy.common.entity.mob.model.ModelRapace;
+import arcane_fantasy.common.entity.renderers.RenderRapace;
+import arcane_fantasy.common.lib.EntityIds;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 

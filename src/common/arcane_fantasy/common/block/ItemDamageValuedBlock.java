@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.block;
+package arcane_fantasy.common.block;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.ItemBlock;

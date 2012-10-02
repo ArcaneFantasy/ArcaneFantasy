@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.entity.mob;
+package arcane_fantasy.common.entity.mob;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityAILookIdle;
@@ -23,8 +23,8 @@ import net.minecraft.src.World;
 
 import java.lang.reflect.Field;
 
-import arcaneFantasy.common.lib.LoggingHelper;
-import arcaneFantasy.common.lib.Reference;
+import arcane_fantasy.common.lib.LoggingHelper;
+import arcane_fantasy.common.lib.Reference;
 
 /**
  * An {@code Entity} for our Rapace. Includes code from

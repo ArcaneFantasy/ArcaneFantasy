@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.core;
+package arcane_fantasy.common.core;
 
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.World;

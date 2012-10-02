@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.lib;
+package arcane_fantasy.common.lib;
 
 import com.google.common.base.Predicate;
 
@@ -13,7 +13,7 @@ import net.minecraft.src.WorldGenerator;
 
 import java.util.*;
 
-import arcaneFantasy.common.entity.mob.EntityRapace;
+import arcane_fantasy.common.entity.mob.EntityRapace;
 import cpw.mods.fml.common.IWorldGenerator;
 
 /**

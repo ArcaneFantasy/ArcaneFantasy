@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.block;
+package arcane_fantasy.common.block;
 
 import net.minecraft.src.BlockStone;
 import net.minecraft.src.CreativeTabs;
@@ -13,8 +13,8 @@ import net.minecraft.src.World;
 
 import java.util.*;
 
-import arcaneFantasy.common.item.ItemManager;
-import arcaneFantasy.common.lib.Reference;
+import arcane_fantasy.common.item.ItemManager;
+import arcane_fantasy.common.lib.Reference;
 
 /**
  * Generic Block for all mod stone types.

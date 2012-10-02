@@ -72,7 +72,7 @@
 
     -->
     <target name="-post-init">
-        <property name="mod-files" value="arcaneFantasy/"/>
+        <property name="mod-files" value="arcane_fantasy/"/>
         <property name="build.classes.reobf.dir" value="${build.dir}/reobfclasses"/>
         <property name="mcp.dir" value="mcp72" />
         <property name="mcp.classes.dir" value="${mcp.dir}/bin/minecraft" />

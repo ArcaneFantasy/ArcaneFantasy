@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.entity.renderers;
+package arcane_fantasy.common.entity.renderers;
 
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.RenderLiving;
 
-import arcaneFantasy.common.entity.mob.EntityRapace;
+import arcane_fantasy.common.entity.mob.EntityRapace;
 
 /**
  *

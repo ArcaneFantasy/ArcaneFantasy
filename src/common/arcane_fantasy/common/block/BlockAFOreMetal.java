@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.block;
+package arcane_fantasy.common.block;
 
 import net.minecraft.src.BlockOre;
 import net.minecraft.src.CreativeTabs;
@@ -10,9 +10,9 @@ import net.minecraft.src.ItemStack;
 
 import java.util.*;
 
-import arcaneFantasy.common.item.ItemAFMetal;
-import static arcaneFantasy.common.item.ItemAFMetal.*;
-import arcaneFantasy.common.lib.Reference;
+import arcane_fantasy.common.item.ItemAFMetal;
+import static arcane_fantasy.common.item.ItemAFMetal.*;
+import arcane_fantasy.common.lib.Reference;
 
 /**
  * Generic Block for all mod metal ores.

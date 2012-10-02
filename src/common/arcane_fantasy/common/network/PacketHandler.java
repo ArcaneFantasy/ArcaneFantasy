@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.network;
+package arcane_fantasy.common.network;
 
 import net.minecraft.src.NetworkManager;
 import net.minecraft.src.Packet250CustomPayload;

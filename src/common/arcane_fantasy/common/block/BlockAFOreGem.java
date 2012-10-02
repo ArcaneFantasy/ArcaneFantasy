@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.block;
+package arcane_fantasy.common.block;
 
 import net.minecraft.src.BlockOre;
 import net.minecraft.src.CreativeTabs;
@@ -10,10 +10,10 @@ import net.minecraft.src.ItemStack;
 
 import java.util.*;
 
-import arcaneFantasy.common.item.ItemAFGem;
-import static arcaneFantasy.common.item.ItemAFGem.*;
-import arcaneFantasy.common.item.ItemManager;
-import arcaneFantasy.common.lib.Reference;
+import arcane_fantasy.common.item.ItemAFGem;
+import static arcane_fantasy.common.item.ItemAFGem.*;
+import arcane_fantasy.common.item.ItemManager;
+import arcane_fantasy.common.lib.Reference;
 
 /**
  * Generic Block for all mod gem ores.

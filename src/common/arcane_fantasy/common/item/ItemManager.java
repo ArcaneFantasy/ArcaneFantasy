@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.item;
+package arcane_fantasy.common.item;
 
 import net.minecraft.src.CraftingManager;
 import net.minecraft.src.CreativeTabs;
@@ -11,8 +11,8 @@ import net.minecraft.src.ItemStack;
 
 import java.util.*;
 
-import arcaneFantasy.common.block.BlockManager;
-import arcaneFantasy.common.lib.ItemIds;
+import arcane_fantasy.common.block.BlockManager;
+import arcane_fantasy.common.lib.ItemIds;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**

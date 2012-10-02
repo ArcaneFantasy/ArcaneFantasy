@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.item;
+package arcane_fantasy.common.item;
 
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
@@ -10,7 +10,7 @@ import net.minecraft.src.ItemStack;
 
 import java.util.*;
 
-import arcaneFantasy.common.lib.Reference;
+import arcane_fantasy.common.lib.Reference;
 
 /**
  * Generic Item for all slate flake types.

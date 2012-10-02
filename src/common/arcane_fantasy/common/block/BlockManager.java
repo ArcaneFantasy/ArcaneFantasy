@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.block;
+package arcane_fantasy.common.block;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
@@ -10,12 +10,12 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.WorldGenMinable;
 import net.minecraftforge.common.MinecraftForge;
 
-import arcaneFantasy.common.item.ItemAFGem;
-import arcaneFantasy.common.item.ItemAFMetal;
-import arcaneFantasy.common.item.ItemManager;
-import static arcaneFantasy.common.lib.BlockIds.*;
-import arcaneFantasy.common.lib.WorldGen.Ore;
-import arcaneFantasy.common.lib.WorldGeneratorDelegate;
+import arcane_fantasy.common.item.ItemAFGem;
+import arcane_fantasy.common.item.ItemAFMetal;
+import arcane_fantasy.common.item.ItemManager;
+import static arcane_fantasy.common.lib.BlockIds.*;
+import arcane_fantasy.common.lib.WorldGen.Ore;
+import arcane_fantasy.common.lib.WorldGeneratorDelegate;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;

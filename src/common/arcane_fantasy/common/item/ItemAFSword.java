@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common.item;
+package arcane_fantasy.common.item;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.Entity;
@@ -13,7 +13,7 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.ItemSword;
 import net.minecraft.src.World;
 
-import arcaneFantasy.common.lib.Reference;
+import arcane_fantasy.common.lib.Reference;
 
 /**
  *

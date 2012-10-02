@@ -2,15 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package arcaneFantasy.common;
+package arcane_fantasy.common;
 
-import arcaneFantasy.common.block.BlockManager;
-import arcaneFantasy.common.core.CommonProxy;
-import arcaneFantasy.common.core.handlers.ConfigurationHandler;
-import arcaneFantasy.common.entity.EntityManager;
-import arcaneFantasy.common.item.ItemManager;
-import arcaneFantasy.common.lib.Reference;
-import arcaneFantasy.common.network.PacketHandler;
+import arcane_fantasy.common.block.BlockManager;
+import arcane_fantasy.common.core.CommonProxy;
+import arcane_fantasy.common.core.handlers.ConfigurationHandler;
+import arcane_fantasy.common.entity.EntityManager;
+import arcane_fantasy.common.item.ItemManager;
+import arcane_fantasy.common.lib.Reference;
+import arcane_fantasy.common.network.PacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
