@@ -1,23 +1,25 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 package arcane_fantasy.common.item;
 
+import arcane_fantasy.common.lib.Reference;
+
 import net.minecraft.src.Item;
 
-import arcane_fantasy.common.lib.Reference;
 
 /**
  * Nothin' special here.
  *
- * @author HMPerson1
+ * @author  HMPerson1
  */
 public class ItemAFSalt extends Item {
 
     /**
+     * Creates a new ItemAFSalt object.
      *
-     * @param id this item's id
+     * @param  id  this item's id
      */
     public ItemAFSalt(int id) {
         super(id);

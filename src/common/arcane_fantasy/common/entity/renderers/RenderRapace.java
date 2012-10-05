@@ -1,38 +1,41 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 package arcane_fantasy.common.entity.renderers;
+
+import arcane_fantasy.common.entity.mob.EntityRapace;
 
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.RenderLiving;
 
-import arcane_fantasy.common.entity.mob.EntityRapace;
 
 /**
+ * DOCUMENT ME!
  *
- * @author HMPerson1
+ * @author  HMPerson1
  */
 public class RenderRapace extends RenderLiving {
 
     /**
-     * Creates a renderer for Rapaces
+     * Creates a renderer for Rapaces.
      *
-     * @param model model to render
-     * @param shadow shadow size to render
+     * @param  model   model to render
+     * @param  shadow  shadow size to render
      */
     public RenderRapace(ModelBase model, float shadow) {
         super(model, shadow);
     }
 
     /**
-     * Returns the rotation of the wings for a given Rapace
+     * Returns the rotation of the wings for a given Rapace.
      *
-     * @param rapace the Rapace
-     * @param partialTicks partial ticks
-     * @return wing rotation in radians
+     * @param   rapace        the Rapace
+     * @param   partialTicks  partial ticks
+     *
+     * @return  wing rotation in radians
      */
     protected float getWingRotation(EntityRapace rapace, float partialTicks) {
         return (float) Math.sin((rapace.ticksExisted + partialTicks) / 4);

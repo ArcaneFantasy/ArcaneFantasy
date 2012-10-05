@@ -1,17 +1,18 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 package arcane_fantasy.common.core.handlers;
 
 import net.minecraftforge.common.Configuration;
 
-import java.io.*;
+import java.io.File;
+
 
 /**
  * Loads config file.
  *
- * @author HMPerson1
+ * @author  HMPerson1
  */
 public class ConfigurationHandler {
 
@@ -23,7 +24,7 @@ public class ConfigurationHandler {
     /**
      * Initialize the handler with the config file.
      *
-     * @param configFile
+     * @param  configFile  DOCUMENT ME!
      */
     public static void init(File configFile) {
         config = new Configuration(configFile);

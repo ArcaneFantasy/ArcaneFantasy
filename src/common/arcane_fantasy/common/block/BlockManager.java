@@ -1,30 +1,35 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 package arcane_fantasy.common.block;
+
+import arcane_fantasy.common.item.ItemAFGem;
+import arcane_fantasy.common.item.ItemAFMetal;
+import arcane_fantasy.common.item.ItemManager;
+import arcane_fantasy.common.lib.WorldGen.Ore;
+import arcane_fantasy.common.lib.WorldGeneratorDelegate;
+
+import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.WorldGenMinable;
+
 import net.minecraftforge.common.MinecraftForge;
 
-import arcane_fantasy.common.item.ItemAFGem;
-import arcane_fantasy.common.item.ItemAFMetal;
-import arcane_fantasy.common.item.ItemManager;
 import static arcane_fantasy.common.lib.BlockIds.*;
-import arcane_fantasy.common.lib.WorldGen.Ore;
-import arcane_fantasy.common.lib.WorldGeneratorDelegate;
-import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+
 
 /**
+ * DOCUMENT ME!
  *
- * @author HMPerson1
+ * @author  HMPerson1
  */
-@SuppressWarnings("PublicField")
+@SuppressWarnings("PublicField" /* NOI18N */)
 public class BlockManager {
 
     public static Block oreGem;
@@ -35,24 +40,25 @@ public class BlockManager {
      * Registers blocks and their natural spawns.
      */
     public static void init() {
-        // add blocks
-        oreGem = new BlockAFOreGem(BLOCK_ORE_GEM, 0).setHardness(3).setResistance(5)
-                .setStepSound(Block.soundStoneFootstep).setBlockName("oreGem");
-        oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 2).setHardness(3).setResistance(5)
-                .setStepSound(Block.soundStoneFootstep).setBlockName("oreMetal");
-        stone = new BlockAFStone(BLOCK_STONE, 16).setHardness(3).setResistance(5)
-                .setStepSound(Block.soundStoneFootstep).setBlockName("afStone");
 
-        MinecraftForge.setBlockHarvestLevel(oreGem, "pickaxe", 3); // diamond pick
-        MinecraftForge.setBlockHarvestLevel(oreMetal, "pickaxe", 2); // iron
-        MinecraftForge.setBlockHarvestLevel(stone, "pickaxe", 1); // stone
+        // add blocks
+        oreGem   = new BlockAFOreGem(BLOCK_ORE_GEM, 0).setStepSound(Block.soundStoneFootstep)
+                .setHardness(3).setResistance(5).setBlockName("oreGem" /* NOI18N */);
+        oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 2).setStepSound(Block.soundStoneFootstep)
+                .setHardness(3).setResistance(5).setBlockName("oreMetal" /* NOI18N */);
+        stone    = new BlockAFStone(BLOCK_STONE, 16).setStepSound(Block.soundStoneFootstep)
+                .setHardness(3).setResistance(5).setBlockName("afStone" /* NOI18N */);
+
+        MinecraftForge.setBlockHarvestLevel(oreGem, "pickaxe" /* NOI18N */, 3); // diamond pick
+        MinecraftForge.setBlockHarvestLevel(oreMetal, "pickaxe" /* NOI18N */, 2); // iron
+        MinecraftForge.setBlockHarvestLevel(stone, "pickaxe" /* NOI18N */, 1); // stone
 
         // register the blocks so the game will recognize them
         GameRegistry.registerBlock(oreGem, ItemDamageValuedBlock.class);
         GameRegistry.registerBlock(oreMetal, ItemDamageValuedBlock.class);
         GameRegistry.registerBlock(stone, ItemDamageValuedBlock.class);
 
-        // add ALL the names 
+        // add ALL the names
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 0), "Quartz Ore");
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 1), "Amethyst Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 0), "Copper Ore");
@@ -81,11 +87,15 @@ public class BlockManager {
      */
     public static void initRecipes() {
         FurnaceRecipes recipes = FurnaceRecipes.smelting();
+
         for (int i = 0; i < ItemAFGem.GEM_TYPES; ++i) {
-            recipes.addSmelting(oreGem.blockID, i, new ItemStack(ItemManager.gem, 1, i));
+            recipes.addSmelting(oreGem.blockID, i,
+                new ItemStack(ItemManager.gem, 1, i));
         }
+
         for (int i = 0; i < ItemAFMetal.METAL_TYPES; ++i) {
-            recipes.addSmelting(oreMetal.blockID, i, new ItemStack(ItemManager.metal, 1, i));
+            recipes.addSmelting(oreMetal.blockID, i,
+                new ItemStack(ItemManager.metal, 1, i));
         }
     }
 
@@ -94,21 +104,26 @@ public class BlockManager {
      */
     private static void registerGen() {
         int i = 0;
+
         for (Ore ore : Ore.GEMS) {
             GameRegistry.registerWorldGenerator(
-                    createGenerator(oreGem.blockID, i, ore));
+                createGenerator(oreGem.blockID, i, ore));
             ++i;
         }
+
         i = 0;
+
         for (Ore ore : Ore.METALS) {
             GameRegistry.registerWorldGenerator(
-                    createGenerator(oreMetal.blockID, i, ore));
+                createGenerator(oreMetal.blockID, i, ore));
             ++i;
         }
+
         i = 0;
+
         for (Ore ore : Ore.STONES) {
             GameRegistry.registerWorldGenerator(
-                    createGenerator(stone.blockID, i, ore));
+                createGenerator(stone.blockID, i, ore));
             ++i;
         }
     }
@@ -116,10 +131,11 @@ public class BlockManager {
     /**
      * Helper for making a IWorldGenerator.
      *
-     * @param id block id to generate
-     * @param meta block metadata to generate
-     * @param ore the Ore that will be generated
-     * @return a IWorldGenerator to the specified specifications
+     * @param   id    block id to generate
+     * @param   meta  block metadata to generate
+     * @param   ore   the Ore that will be generated
+     *
+     * @return  a IWorldGenerator to the specified specifications
      */
     private static IWorldGenerator createGenerator(int id, int meta, Ore ore) {
         return new WorldGeneratorDelegate(
