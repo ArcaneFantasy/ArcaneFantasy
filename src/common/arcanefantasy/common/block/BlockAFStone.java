@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcane_fantasy.common.block;
+package arcanefantasy.common.block;
 
-import arcane_fantasy.common.item.ItemManager;
-import arcane_fantasy.common.lib.Reference;
+import arcanefantasy.common.item.ItemManager;
+import arcanefantasy.common.lib.Reference;
 
 import net.minecraft.src.BlockStone;
 import net.minecraft.src.CreativeTabs;

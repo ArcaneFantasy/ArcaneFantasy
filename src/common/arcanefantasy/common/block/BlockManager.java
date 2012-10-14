@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcane_fantasy.common.block;
+package arcanefantasy.common.block;
 
-import arcane_fantasy.common.item.ItemAFGem;
-import arcane_fantasy.common.item.ItemAFMetal;
-import arcane_fantasy.common.item.ItemManager;
-import arcane_fantasy.common.lib.WorldGen.Ore;
-import arcane_fantasy.common.lib.WorldGeneratorDelegate;
+import arcanefantasy.common.item.ItemAFGem;
+import arcanefantasy.common.item.ItemAFMetal;
+import arcanefantasy.common.item.ItemManager;
+import arcanefantasy.common.lib.WorldGen.Ore;
+import arcanefantasy.common.lib.WorldGeneratorDelegate;
 
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -21,7 +21,7 @@ import net.minecraft.src.WorldGenMinable;
 
 import net.minecraftforge.common.MinecraftForge;
 
-import static arcane_fantasy.common.lib.BlockIds.*;
+import static arcanefantasy.common.lib.BlockIds.*;
 
 
 /**

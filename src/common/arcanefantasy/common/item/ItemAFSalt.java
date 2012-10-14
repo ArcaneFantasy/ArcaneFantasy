@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcane_fantasy.common.item;
+package arcanefantasy.common.item;
 
-import arcane_fantasy.common.lib.Reference;
+import arcanefantasy.common.lib.Reference;
 
 import net.minecraft.src.Item;
 

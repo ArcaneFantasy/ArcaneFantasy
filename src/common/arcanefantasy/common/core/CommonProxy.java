@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcane_fantasy.common.core;
+package arcanefantasy.common.core;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 

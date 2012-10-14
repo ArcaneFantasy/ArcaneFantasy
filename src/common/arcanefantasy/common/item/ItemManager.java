@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcane_fantasy.common.item;
+package arcanefantasy.common.item;
 
-import arcane_fantasy.common.block.BlockManager;
-import arcane_fantasy.common.lib.ItemIds;
+import arcanefantasy.common.block.BlockManager;
+import arcanefantasy.common.lib.ItemIds;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

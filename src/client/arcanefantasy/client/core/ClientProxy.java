@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcane_fantasy.client.core;
+package arcanefantasy.client.core;
 
-import arcane_fantasy.common.core.CommonProxy;
-import arcane_fantasy.common.lib.Reference;
+import arcanefantasy.common.core.CommonProxy;
+import arcanefantasy.common.lib.Reference;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 

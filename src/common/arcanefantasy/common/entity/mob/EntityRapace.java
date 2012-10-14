@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcane_fantasy.common.entity.mob;
+package arcanefantasy.common.entity.mob;
 
-import arcane_fantasy.common.lib.LoggingHelper;
-import arcane_fantasy.common.lib.Reference;
+import arcanefantasy.common.lib.LoggingHelper;
+import arcanefantasy.common.lib.Reference;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityAILookIdle;

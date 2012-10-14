@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcane_fantasy.common.entity;
+package arcanefantasy.common.entity;
 
-import arcane_fantasy.common.entity.mob.EntityRapace;
-import arcane_fantasy.common.entity.mob.model.ModelRapace;
-import arcane_fantasy.common.entity.renderers.RenderRapace;
-import arcane_fantasy.common.lib.EntityIds;
+import arcanefantasy.common.entity.mob.EntityRapace;
+import arcanefantasy.common.entity.mob.model.ModelRapace;
+import arcanefantasy.common.entity.renderers.RenderRapace;
+import arcanefantasy.common.lib.EntityIds;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
