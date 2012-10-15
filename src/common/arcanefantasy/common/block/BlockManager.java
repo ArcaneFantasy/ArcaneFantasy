@@ -32,6 +32,12 @@ import static arcanefantasy.common.lib.BlockIds.*;
 @SuppressWarnings("PublicField" /* NOI18N */)
 public class BlockManager {
 
+    /* Block name constants */
+    public static final String NAME_AF_STONE  = "afStone"  /* NOI18N */;
+    public static final String NAME_ORE_METAL = "oreMetal" /* NOI18N */;
+    public static final String NAME_ORE_GEM   = "oreGem"   /* NOI18N */;
+
+    /* Block instances */
     public static Block oreGem;
     public static Block oreMetal;
     public static Block stone;
@@ -43,11 +49,11 @@ public class BlockManager {
 
         // add blocks
         oreGem   = new BlockAFOreGem(BLOCK_ORE_GEM, 0).setStepSound(Block.soundStoneFootstep)
-                .setHardness(3).setResistance(5).setBlockName("oreGem" /* NOI18N */);
+                .setHardness(3).setResistance(5).setBlockName(NAME_ORE_GEM);
         oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 2).setStepSound(Block.soundStoneFootstep)
-                .setHardness(3).setResistance(5).setBlockName("oreMetal" /* NOI18N */);
+                .setHardness(3).setResistance(5).setBlockName(NAME_ORE_METAL);
         stone    = new BlockAFStone(BLOCK_STONE, 16).setStepSound(Block.soundStoneFootstep)
-                .setHardness(3).setResistance(5).setBlockName("afStone" /* NOI18N */);
+                .setHardness(3).setResistance(5).setBlockName(NAME_AF_STONE);
 
         MinecraftForge.setBlockHarvestLevel(oreGem, "pickaxe" /* NOI18N */, 3); // diamond pick
         MinecraftForge.setBlockHarvestLevel(oreMetal, "pickaxe" /* NOI18N */, 2); // iron
@@ -59,6 +65,7 @@ public class BlockManager {
         GameRegistry.registerBlock(stone, ItemDamageValuedBlock.class);
 
         // add ALL the names
+        // TODO: I18N
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 0), "Quartz Ore");
         LanguageRegistry.addName(new ItemStack(oreGem, 1, 1), "Amethyst Ore");
         LanguageRegistry.addName(new ItemStack(oreMetal, 1, 0), "Copper Ore");

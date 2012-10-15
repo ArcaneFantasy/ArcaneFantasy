@@ -87,7 +87,7 @@ public class ArcaneFantasy {
         // Init entities
         EntityManager.init();
 
-        // Init blocks/spawns
+        // Init blocks/world-gen
         BlockManager.init();
 
         // Init items
