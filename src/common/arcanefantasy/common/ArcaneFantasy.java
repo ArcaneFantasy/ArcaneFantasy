@@ -11,6 +11,7 @@ import arcanefantasy.common.entity.EntityManager;
 import arcanefantasy.common.item.ItemManager;
 import arcanefantasy.common.lib.Reference;
 import arcanefantasy.common.network.PacketHandler;
+import arcanefantasy.common.recipes.RecipeManager;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -52,8 +53,8 @@ public class ArcaneFantasy {
      * whether this is running on a server or client.
      */
     @SidedProxy(
-        clientSide = "arcaneFantasy.client.core.ClientProxy" /* NOI18N */,
-        serverSide = "arcaneFantaxy.common.core.CommonProxy" /* NOI18N */
+        clientSide = "arcanefantasy.client.core.ClientProxy" /* NOI18N */,
+        serverSide = "arcanefantaxy.common.core.CommonProxy" /* NOI18N */
     )
     @SuppressWarnings("PublicField"                          /* NOI18N */)
     public static CommonProxy proxy;
@@ -94,8 +95,7 @@ public class ArcaneFantasy {
         ItemManager.init();
 
         // Init recipes
-        BlockManager.initRecipes();
-        ItemManager.initRecipes();
+        RecipeManager.initRecipes();
 
         // Recipes use items/blocks, so all the items/blocks need to be
         // initialized before the recipes can be added

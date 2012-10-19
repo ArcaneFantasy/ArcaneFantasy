@@ -16,6 +16,7 @@ import net.minecraft.src.ItemStack;
 
 import java.util.Locale;
 
+
 /**
  * DOCUMENT ME!
  *
@@ -25,65 +26,67 @@ import java.util.Locale;
 public class ItemManager {
 
     /* Item name constants */
-    public static final String NAME_GEM = "gem";
-    public static final String NAME_METAL = "metal";
+    public static final String NAME_GEM    = "gem";
+    public static final String NAME_METAL  = "metal";
     public static final String NAME_SLATEF = "slatef";
-    public static final String NAME_CHALK = "chalk";
-    public static final String NAME_SALT = "salt";
-    public static final String NAME_SWORD = "swords";
+    public static final String NAME_CHALK  = "chalk";
+    public static final String NAME_SALT   = "salt";
+    public static final String NAME_SWORD  = "swords";
 
     /* Item instances */
-    public static Item gem;
-    public static Item metal;
-    public static Item slateFlake;
-    public static Item chalk;
-    public static Item salt;
+    public static Item          gem;
+    public static Item          metal;
+    public static Item          slateFlake;
+    public static Item          chalk;
+    public static Item          salt;
     public static ItemAFSword[] swords = new ItemAFSword[EnumAFToolMaterial.values().length];
 
-    public static final String[] RECIPE_SLATE_BLOCK = {
-        "FFF" /* NOI18N */,
-        "FFF" /* NOI18N */,
-        "FFF" /* NOI18N */
-    };
-    public static final String[] RECIPE_SWORD       = {
-        "X" /* NOI18N */,
-        "X" /* NOI18N */,
-        "#" /* NOI18N */
-    };
+    private ItemManager() { }
 
     /**
      * Initializes items.
      */
     public static void init() {
-
+//J-
         // add the items
-        gem        = new ItemAFGem(ItemIds.ITEM_GEM).setIconCoord(0, 0)
-                .setItemName(NAME_GEM).setTabToDisplayOn(CreativeTabs.tabMaterials);
-        metal      = new ItemAFMetal(ItemIds.ITEM_METAL).setIconCoord(2, 0)
-                .setItemName(NAME_METAL).setTabToDisplayOn(CreativeTabs.tabMaterials);
-        slateFlake = new ItemAFSlateFlake(ItemIds.ITEM_SLATE_FLAKE).setIconCoord(1, 3)
-                .setItemName(NAME_SLATEF).setTabToDisplayOn(CreativeTabs.tabMaterials);
-        chalk      = new ItemAFChalk(ItemIds.ITEM_CHALK).setIconCoord(0, 2)
-                .setItemName(NAME_CHALK).setTabToDisplayOn(CreativeTabs.tabMaterials);
-        salt       = new ItemAFSalt(ItemIds.ITEM_SALT).setIconCoord(0, 3)
-                .setItemName(NAME_SALT).setTabToDisplayOn(CreativeTabs.tabMaterials);
-
+        gem        = new ItemAFGem(ItemIds.ITEM_GEM)
+                .setIconCoord(0, 0)
+                .setItemName(NAME_GEM)
+                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+        metal      = new ItemAFMetal(ItemIds.ITEM_METAL)
+                .setIconCoord(2, 0)
+                .setItemName(NAME_METAL)
+                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+        slateFlake = new ItemAFSlateFlake(ItemIds.ITEM_SLATE_FLAKE)
+                .setIconCoord(1, 3)
+                .setItemName(NAME_SLATEF)
+                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+        chalk      = new ItemAFChalk(ItemIds.ITEM_CHALK)
+                .setIconCoord(0, 2)
+                .setItemName(NAME_CHALK)
+                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+        salt       = new ItemAFSalt(ItemIds.ITEM_SALT)
+                .setIconCoord(0, 3)
+                .setItemName(NAME_SALT)
+                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+//J+
         int i = 0;
 
-        for (EnumAFToolMaterial material : EnumAFToolMaterial.values()) {
+        for (final EnumAFToolMaterial material : EnumAFToolMaterial.values()) {
 
             // easier to loop than to go through EVERY SINGLE SWORD
-            String name = material.name().toLowerCase(Locale.US);
+            final String name = material.name().toLowerCase(Locale.US);
             swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ITEM_SWORD + i, material)
                     .setIconCoord(i, 1).setItemName("sword." /* NOI18N */ + name)
                     .setTabToDisplayOn(CreativeTabs.tabCombat);
 
             // while we're in here, we might as well add the names
             LanguageRegistry.addName(
-                    swords[i],
-                    new StringBuilder().append(
-                    name.substring(0, 1).toUpperCase(Locale.US)).append(name.substring(1))
-                    .append(" Sword").toString());
+                swords[i],
+                new StringBuilder().append(name.substring(0, 1).toUpperCase(Locale.US))
+                                   .append(name.substring(1))
+                                   .append(" Sword")
+                                   .toString());
             ++i;
         }
 
@@ -120,42 +123,5 @@ public class ItemManager {
         LanguageRegistry.addName(new ItemStack(chalk, 1, 13), "Magenta Chalk");
         LanguageRegistry.addName(new ItemStack(chalk, 1, 14), "Orange Chalk");
         LanguageRegistry.addName(new ItemStack(chalk, 1, 15), "White Chalk");
-    }
-
-    /**
-     * Registers item recipes.
-     */
-    public static void initRecipes() {
-        CraftingManager instance = CraftingManager.getInstance();
-        instance.addShapelessRecipe(new ItemStack(slateFlake, 1, 1),
-                                    slateFlake, slateFlake);
-        instance.addRecipe(new ItemStack(BlockManager.stone, 1, 0),
-                           RECIPE_SLATE_BLOCK,
-                           'F',
-                           new ItemStack(slateFlake, 1, 1));
-
-        for (int i = 0; i < (ItemAFChalk.CHALK_TYPES - 1); i++) {
-
-            // ^^^
-            // don't allow bleaching of already white chalk
-            instance.addShapelessRecipe(new ItemStack(chalk, 1, i),
-                                        new ItemStack(Item.dyePowder, 1, i),
-                                        new ItemStack(chalk, 1, 15));
-            instance.addShapelessRecipe(new ItemStack(chalk, 2, i),
-                                        new ItemStack(Item.dyePowder, 1, i),
-                                        new ItemStack(chalk, 1, 15),
-                                        new ItemStack(chalk, 1, 15));
-            // you can get 2 colorings for one dye
-        }
-
-        // TODO: Should we allow bleaching chalks with bonemeal?
-        for (ItemAFSword sword : swords) {
-
-            // Ugly, but it works
-            instance.addRecipe(new ItemStack(sword), RECIPE_SWORD, 'X',
-                new ItemStack(sword.toolMaterial.ingot ? metal.shiftedIndex : gem.shiftedIndex,
-                    1, sword.toolMaterial.materialMeta),
-                '#', new ItemStack(Item.stick));
-        }
     }
 }

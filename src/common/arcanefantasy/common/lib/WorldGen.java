@@ -77,13 +77,13 @@ public class WorldGen {
         public final double                          spawnChance;
         public final int[]                           nonGenLevels;
 
-        private Ore(int                             orePerVein,
-                    int                             minSpawnHeight,
-                    int                             maxSpawnHeight,
-                    Predicate<? super BiomeGenBase> biomes,
-                    int                             spawnRate,
-                    double                          spawnChance,
-                    int[]                           nonGenLevels) {
+        private Ore(final int                             orePerVein,
+                    final int                             minSpawnHeight,
+                    final int                             maxSpawnHeight,
+                    final Predicate<? super BiomeGenBase> biomes,
+                    final int                             spawnRate,
+                    final double                          spawnChance,
+                    final int[]                           nonGenLevels) {
             this.orePerVein     = orePerVein;
             this.minSpawnHeight = minSpawnHeight;
             this.maxSpawnHeight = maxSpawnHeight;
@@ -93,6 +93,8 @@ public class WorldGen {
             this.nonGenLevels   = nonGenLevels;
         }
     }
+
+    public WorldGen() { }
 
     /**
      * Predicate for determining if Glacium can generate in a certain biome.
@@ -107,7 +109,7 @@ public class WorldGen {
          * @return  if Glacium can spawn here
          */
         @Override
-        public boolean apply(BiomeGenBase biome) {
+        public boolean apply(final BiomeGenBase biome) {
             Preconditions.checkNotNull(biome);
 
             // it snows OR its really cold

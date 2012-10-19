@@ -42,19 +42,30 @@ public class BlockManager {
     public static Block oreMetal;
     public static Block stone;
 
+    private BlockManager() { }
+
     /**
      * Registers blocks and their natural spawns.
      */
     public static void init() {
-
+//J-
         // add blocks
-        oreGem   = new BlockAFOreGem(BLOCK_ORE_GEM, 0).setStepSound(Block.soundStoneFootstep)
-                .setHardness(3).setResistance(5).setBlockName(NAME_ORE_GEM);
-        oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 2).setStepSound(Block.soundStoneFootstep)
-                .setHardness(3).setResistance(5).setBlockName(NAME_ORE_METAL);
-        stone    = new BlockAFStone(BLOCK_STONE, 16).setStepSound(Block.soundStoneFootstep)
-                .setHardness(3).setResistance(5).setBlockName(NAME_AF_STONE);
-
+        oreGem   = new BlockAFOreGem(BLOCK_ORE_GEM, 0)
+                .setStepSound(Block.soundStoneFootstep)
+                .setHardness(3)
+                .setResistance(5)
+                .setBlockName(NAME_ORE_GEM);
+        oreMetal = new BlockAFOreMetal(BLOCK_ORE_METAL, 2)
+                .setStepSound(Block.soundStoneFootstep)
+                .setHardness(3)
+                .setResistance(5)
+                .setBlockName(NAME_ORE_METAL);
+        stone    = new BlockAFStone(BLOCK_STONE, 16)
+                .setStepSound(Block.soundStoneFootstep)
+                .setHardness(3)
+                .setResistance(5)
+                .setBlockName(NAME_AF_STONE);
+//J+
         MinecraftForge.setBlockHarvestLevel(oreGem, "pickaxe" /* NOI18N */, 3); // diamond pick
         MinecraftForge.setBlockHarvestLevel(oreMetal, "pickaxe" /* NOI18N */, 2); // iron
         MinecraftForge.setBlockHarvestLevel(stone, "pickaxe" /* NOI18N */, 1); // stone
@@ -90,29 +101,12 @@ public class BlockManager {
     }
 
     /**
-     * Registers block recipes.
-     */
-    public static void initRecipes() {
-        FurnaceRecipes recipes = FurnaceRecipes.smelting();
-
-        for (int i = 0; i < ItemAFGem.GEM_TYPES; ++i) {
-            recipes.addSmelting(oreGem.blockID, i,
-                new ItemStack(ItemManager.gem, 1, i));
-        }
-
-        for (int i = 0; i < ItemAFMetal.METAL_TYPES; ++i) {
-            recipes.addSmelting(oreMetal.blockID, i,
-                new ItemStack(ItemManager.metal, 1, i));
-        }
-    }
-
-    /**
      * Registers ore generators for world gen.
      */
     private static void registerGen() {
         int i = 0;
 
-        for (Ore ore : Ore.GEMS) {
+        for (final Ore ore : Ore.GEMS) {
             GameRegistry.registerWorldGenerator(
                 createGenerator(oreGem.blockID, i, ore));
             ++i;
@@ -120,7 +114,7 @@ public class BlockManager {
 
         i = 0;
 
-        for (Ore ore : Ore.METALS) {
+        for (final Ore ore : Ore.METALS) {
             GameRegistry.registerWorldGenerator(
                 createGenerator(oreMetal.blockID, i, ore));
             ++i;
@@ -128,7 +122,7 @@ public class BlockManager {
 
         i = 0;
 
-        for (Ore ore : Ore.STONES) {
+        for (final Ore ore : Ore.STONES) {
             GameRegistry.registerWorldGenerator(
                 createGenerator(stone.blockID, i, ore));
             ++i;
@@ -144,10 +138,14 @@ public class BlockManager {
      *
      * @return  a IWorldGenerator to the specified specifications
      */
-    private static IWorldGenerator createGenerator(int id, int meta, Ore ore) {
+    private static IWorldGenerator createGenerator(final int id, final int meta, final Ore ore) {
         return new WorldGeneratorDelegate(
                 new WorldGenMinable(id, meta, ore.orePerVein),
-                ore.minSpawnHeight, ore.maxSpawnHeight, ore.biomes,
-                ore.spawnRate, ore.spawnChance, ore.nonGenLevels);
+                ore.minSpawnHeight,
+                ore.maxSpawnHeight,
+                ore.biomes,
+                ore.spawnRate,
+                ore.spawnChance,
+                ore.nonGenLevels);
     }
 }

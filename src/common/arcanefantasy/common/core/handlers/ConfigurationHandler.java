@@ -31,7 +31,7 @@ public class ConfigurationHandler {
     /**
      * Initialize the handler with the config file.
      *
-     * @param  configFile  DOCUMENT ME!
+     * @param  configFile  file to be used for configs
      */
     public static void init(final File configFile) {
         config = new Configuration(configFile);
@@ -67,6 +67,7 @@ public class ConfigurationHandler {
         ItemIds.ITEM_SWORD       = config
                 .getOrCreateIntProperty(NAME_SWORD, CATEGORY_ITEM, ItemIds.ITEM_SWORD)
                 .getInt(ItemIds.ITEM_SWORD);
+        config.save();
 
     }
 }
