@@ -4,8 +4,8 @@
  */
 package arcanefantasy.common.block;
 
+import arcanefantasy.common.core.managers.ItemManager;
 import arcanefantasy.common.item.ItemAFGem;
-import arcanefantasy.common.item.ItemManager;
 import arcanefantasy.common.lib.Reference;
 
 import net.minecraft.src.BlockOre;
@@ -39,26 +39,26 @@ public class BlockAFOreGem extends BlockOre {
      * @param  id   this block's id
      * @param  tex  the index at which this block's texture(s) are located
      */
-    public BlockAFOreGem(int id, int tex) {
+    public BlockAFOreGem(final int id, final int tex) {
         super(id, tex);
         setTextureFile(Reference.SPRITE_SHEET_LOCATION +
-                Reference.BLOCK_SPRITE_SHEET);
+                           Reference.BLOCK_SPRITE_SHEET);
     }
 
     @Override
-    public int getBlockTextureFromSideAndMetadata(int side, int meta) {
+    public int getBlockTextureFromSideAndMetadata(final int side, final int meta) {
         return blockIndexInTexture + meta;
     }
 
     @Override
-    public int idDropped(int par1, Random par2Random, int par3) {
+    public int idDropped(final int par1, final Random par2Random, final int par3) {
 
         // don't drop the block, drop the gem
         return ItemManager.gem.shiftedIndex;
     }
 
     @Override
-    protected int damageDropped(int damage) {
+    protected int damageDropped(final int damage) {
         return damage;
     }
 
@@ -72,7 +72,7 @@ public class BlockAFOreGem extends BlockOre {
     @Override
     @SuppressWarnings("unchecked" /* NOI18N */)
     // FORGE!!!! Y U FORGET ABOUT GENERICS?!?!
-    public void getSubBlocks(int id, CreativeTabs par2CreativeTabs, List list) {
+    public void getSubBlocks(final int id, final CreativeTabs par2CreativeTabs, final List list) {
 
         for (int i = 0; i < GEM_TYPES; i++) {
             list.add(new ItemStack(id, 1, i));

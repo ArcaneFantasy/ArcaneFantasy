@@ -2,9 +2,16 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcanefantasy.common.item;
+package arcanefantasy.common.core.managers;
 
-import arcanefantasy.common.block.BlockManager;
+import arcanefantasy.common.core.managers.BlockManager;
+import arcanefantasy.common.item.EnumAFToolMaterial;
+import arcanefantasy.common.item.ItemAFChalk;
+import arcanefantasy.common.item.ItemAFGem;
+import arcanefantasy.common.item.ItemAFMetal;
+import arcanefantasy.common.item.ItemAFSalt;
+import arcanefantasy.common.item.ItemAFSlateFlake;
+import arcanefantasy.common.item.ItemAFSword;
 import arcanefantasy.common.lib.ItemIds;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;

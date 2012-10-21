@@ -4,14 +4,14 @@
  */
 package arcanefantasy.common;
 
-import arcanefantasy.common.block.BlockManager;
 import arcanefantasy.common.core.CommonProxy;
 import arcanefantasy.common.core.handlers.ConfigurationHandler;
-import arcanefantasy.common.entity.EntityManager;
-import arcanefantasy.common.item.ItemManager;
+import arcanefantasy.common.core.managers.BlockManager;
+import arcanefantasy.common.core.managers.EntityManager;
+import arcanefantasy.common.core.managers.ItemManager;
+import arcanefantasy.common.core.managers.RecipeManager;
 import arcanefantasy.common.lib.Reference;
 import arcanefantasy.common.network.PacketHandler;
-import arcanefantasy.common.recipes.RecipeManager;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -65,7 +65,7 @@ public class ArcaneFantasy {
      * @param  evt  DOCUMENT ME!
      */
     @Mod.PreInit
-    public void preInit(FMLPreInitializationEvent evt) {
+    public void preInit(final FMLPreInitializationEvent evt) {
 
         // Initialize config
         ConfigurationHandler.init(evt.getSuggestedConfigurationFile());
@@ -80,7 +80,7 @@ public class ArcaneFantasy {
      * @param  evt  DOCUMENT ME!
      */
     @Mod.Init
-    public void init(FMLInitializationEvent evt) {
+    public void init(final FMLInitializationEvent evt) {
 
         // Load texture files
         proxy.preloadTextures();
@@ -108,7 +108,7 @@ public class ArcaneFantasy {
      * @param  evt  DOCUMENT ME!
      */
     @Mod.PostInit
-    public void postInit(FMLPostInitializationEvent evt) {
+    public void postInit(final FMLPostInitializationEvent evt) {
         // TODO: Plugins??
     }
 }

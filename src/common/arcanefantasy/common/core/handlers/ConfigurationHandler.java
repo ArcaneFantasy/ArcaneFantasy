@@ -10,8 +10,8 @@ import net.minecraftforge.common.Configuration;
 
 import java.io.File;
 
-import static arcanefantasy.common.block.BlockManager.*;
-import static arcanefantasy.common.item.ItemManager.*;
+import static arcanefantasy.common.core.managers.BlockManager.*;
+import static arcanefantasy.common.core.managers.ItemManager.*;
 import arcanefantasy.common.lib.ItemIds;
 
 import static net.minecraftforge.common.Configuration.*;

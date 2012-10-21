@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcanefantasy.common.recipes;
+package arcanefantasy.common.core.managers;
 
 
 import arcanefantasy.common.block.*;
@@ -16,8 +16,8 @@ import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ShapedRecipes;
 
-import static arcanefantasy.common.block.BlockManager.*;
-import static arcanefantasy.common.item.ItemManager.*;
+import static arcanefantasy.common.core.managers.BlockManager.*;
+import static arcanefantasy.common.core.managers.ItemManager.*;
 
 
 /**

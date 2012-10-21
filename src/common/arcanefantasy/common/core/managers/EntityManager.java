@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcanefantasy.common.entity;
+package arcanefantasy.common.core.managers;
 
 import arcanefantasy.common.entity.mob.EntityRapace;
 import arcanefantasy.common.entity.mob.model.ModelRapace;

@@ -2,11 +2,15 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
-package arcanefantasy.common.block;
+package arcanefantasy.common.core.managers;
 
+import arcanefantasy.common.block.BlockAFOreGem;
+import arcanefantasy.common.block.BlockAFOreMetal;
+import arcanefantasy.common.block.BlockAFStone;
+import arcanefantasy.common.block.ItemDamageValuedBlock;
+import arcanefantasy.common.core.managers.ItemManager;
 import arcanefantasy.common.item.ItemAFGem;
 import arcanefantasy.common.item.ItemAFMetal;
-import arcanefantasy.common.item.ItemManager;
 import arcanefantasy.common.lib.WorldGen.Ore;
 import arcanefantasy.common.lib.WorldGeneratorDelegate;
 

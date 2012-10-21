@@ -4,7 +4,7 @@
  */
 package arcanefantasy.common.block;
 
-import arcanefantasy.common.item.ItemManager;
+import arcanefantasy.common.core.managers.ItemManager;
 import arcanefantasy.common.lib.Reference;
 
 import net.minecraft.src.BlockStone;
@@ -47,19 +47,19 @@ public class BlockAFStone extends BlockStone {
      * @param  id   this block's id
      * @param  tex  the index at which this block's texture(s) are located
      */
-    public BlockAFStone(int id, int tex) {
+    public BlockAFStone(final int id, final int tex) {
         super(id, tex);
         setTextureFile(Reference.SPRITE_SHEET_LOCATION +
-                Reference.BLOCK_SPRITE_SHEET);
+                           Reference.BLOCK_SPRITE_SHEET);
     }
 
     @Override
-    public int getBlockTextureFromSideAndMetadata(int side, int meta) {
+    public int getBlockTextureFromSideAndMetadata(final int side, final int meta) {
         return blockIndexInTexture + meta;
     }
 
     @Override
-    public int idDropped(int meta, Random random, int par3) {
+    public int idDropped(final int meta, final Random random, final int par3) {
 
         switch (meta) {
 
@@ -86,7 +86,7 @@ public class BlockAFStone extends BlockStone {
     }
 
     @Override
-    protected int damageDropped(int damage) {
+    protected int damageDropped(final int damage) {
 
         switch (damage) {
 
@@ -110,8 +110,8 @@ public class BlockAFStone extends BlockStone {
     }
 
     @Override
-    public int quantityDropped(int meta, int fortune, Random random) {
-        int quantityDropped = random.nextInt(5) + 11;
+    public int quantityDropped(final int meta, final int fortune, final Random random) {
+        final int quantityDropped = random.nextInt(5) + 11;
 
         // TODO: May need some tweaking...
         switch (meta) {
@@ -123,8 +123,8 @@ public class BlockAFStone extends BlockStone {
                 // same method used by BlockOre
                 return quantityDropped *
                         (MathHelper.clamp_int(random.nextInt(fortune + 2) - 1,
-                                0,
-                                Integer.MAX_VALUE) + 1);
+                                              0,
+                                              Integer.MAX_VALUE) + 1);
 
             default:
                 return 1;
@@ -132,16 +132,16 @@ public class BlockAFStone extends BlockStone {
     }
 
     @Override
-    public ItemStack getPickBlock(MovingObjectPosition target,
-                                  World                world,
-                                  int                  x,
-                                  int                  y,
-                                  int                  z) {
+    public ItemStack getPickBlock(final MovingObjectPosition target,
+                                  final World                world,
+                                  final int                  x,
+                                  final int                  y,
+                                  final int                  z) {
 
         // Must be overridden, otherwise the damaged returned will be the damage
         // of the item dropped, not the damage of the block itself
         return new ItemStack(idPicked(world, x, y, z), 1,
-                world.getBlockMetadata(x, y, z));
+                             world.getBlockMetadata(x, y, z));
     }
 
     /**
@@ -154,7 +154,7 @@ public class BlockAFStone extends BlockStone {
     @Override
     @SuppressWarnings("unchecked" /* NOI18N */)
     // FORGE!!!! Y U FORGET ABOUT GENERICS?!?!
-    public void getSubBlocks(int id, CreativeTabs par2CreativeTabs, List list) {
+    public void getSubBlocks(final int id, final CreativeTabs par2CreativeTabs, final List list) {
 
         for (int i = 0; i < STONE_TYPES; i++) {
             list.add(new ItemStack(id, 1, i));
