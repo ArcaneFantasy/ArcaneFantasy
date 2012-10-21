@@ -39,19 +39,20 @@ public class ItemAFSword extends ItemSword {
      * @param  id        this item's id
      * @param  material  this sword's material
      */
-    public ItemAFSword(int id, EnumAFToolMaterial material) {
+    public ItemAFSword(final int id, final EnumAFToolMaterial material) {
         super(id, EnumToolMaterial.IRON); // MUST be called
         setTextureFile(Reference.SPRITE_SHEET_LOCATION + Reference.ITEM_SPRITE_SHEET);
 
         // Overwrite what super() just did:
         setMaxDamage(material.maxUses);
-        this.toolMaterial = material;
-        weaponDamage      = 4 + material.damageVsEntity;
+        toolMaterial = material;
+        weaponDamage = 4 + material.damageVsEntity;
     }
 
     @Override
-    public boolean hitEntity(ItemStack is, EntityLiving target, EntityLiving player) {
-        boolean ret = super.hitEntity(is, target, player);
+    public boolean hitEntity(final ItemStack    is,
+                             final EntityLiving target,
+                             final EntityLiving player) {
 
         switch (toolMaterial) {
 
@@ -65,23 +66,21 @@ public class ItemAFSword extends ItemSword {
             case GLACIUM:
 
                 // puts the entity in a 4x4 chunk of ice
-                World world = target.worldObj;
-                int   tgtX  = (int) Math.round(target.posX);
-                int   tgtY  = (int) Math.round(target.posY);
-                int   tgtZ  = (int) Math.round(target.posZ);
+                final World world = target.worldObj;
+                final int   tgtX  = (int) Math.round(target.posX);
+                final int   tgtY  = (int) Math.round(target.posY);
+                final int   tgtZ  = (int) Math.round(target.posZ);
 
                 for (int i = tgtX - 2; i < (tgtX + 2); i++) {
 
                     for (int j = tgtY - 2; j < (tgtY + 2); j++) {
 
                         for (int k = tgtZ - 2; k < (tgtZ + 2); k++) {
-                            int id = world.getBlockId(i, j, k);
+                            final int id = world.getBlockId(i, j, k);
 
+                            // hard coded list of all the replacable blocks
                             if (((Block.blocksList[id] == null) ||
-                                        Block.blocksList[id].isBlockReplaceable(world, i, j, k))
-                                    // hard coded list of all the replacable
-                                    // blocks
-                                    ||
+                                        Block.blocksList[id].isBlockReplaceable(world, i, j, k)) ||
                                     (id == Block.waterStill.blockID) ||
                                     (id == Block.waterMoving.blockID) ||
                                     (id == Block.snow.blockID) ||
@@ -100,18 +99,21 @@ public class ItemAFSword extends ItemSword {
 
                 // strikes the entity with lightning
                 target.worldObj.addWeatherEffect(new EntityLightningBolt(
-                        target.worldObj, target.posX, target.posY, target.posZ));
+                        target.worldObj,
+                        target.posX,
+                        target.posY,
+                        target.posZ));
 
                 return true;
 
             default:
-                return ret;
+                return super.hitEntity(is, target, player);
         }
 
     }
 
     @Override
-    public int getDamageVsEntity(Entity par1Entity) {
+    public int getDamageVsEntity(final Entity par1Entity) {
 
         // override ItemSword
         return weaponDamage;

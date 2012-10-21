@@ -12,10 +12,10 @@ package arcanefantasy.common.lib;
 @SuppressWarnings("PublicField" /* NOI18N */)
 public class ItemIds {
 
-    public static int ITEM_GEM         = 400;
-    public static int ITEM_METAL       = 401;
-    public static int ITEM_SLATE_FLAKE = 402;
-    public static int ITEM_CHALK       = 403;
-    public static int ITEM_SALT        = 404;
-    public static int ITEM_SWORD       = 405;
+    public static int ID_ITEM_GEM         = 400;
+    public static int ID_ITEM_METAL       = 401;
+    public static int ID_ITEM_SLATEF = 402;
+    public static int ID_ITEM_CHALK       = 403;
+    public static int ID_ITEM_SALT        = 404;
+    public static int ID_ITEM_SWORD       = 405;
 }

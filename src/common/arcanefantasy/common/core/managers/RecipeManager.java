@@ -31,7 +31,7 @@ public class RecipeManager {
     /**
      * Adds all recipes.
      */
-    public static void initRecipes() {
+    public static void init() {
         initSmelting();
         initCrafting();
     }
@@ -85,7 +85,7 @@ public class RecipeManager {
         for (final ItemAFSword sword : swords) {
 
             final ItemStack material = new ItemStack(
-                    sword.toolMaterial.ingot ? metal.shiftedIndex : gem.shiftedIndex,
+                    sword.toolMaterial.isIngot ? metal.shiftedIndex : gem.shiftedIndex,
                     1,
                     sword.toolMaterial.materialMeta);
 

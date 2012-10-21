@@ -56,23 +56,23 @@ public class ItemManager {
     public static void init() {
 //J-
         // add the items
-        gem        = new ItemAFGem(ItemIds.ITEM_GEM)
+        gem        = new ItemAFGem(ItemIds.ID_ITEM_GEM)
                 .setIconCoord(0, 0)
                 .setItemName(NAME_GEM)
                 .setTabToDisplayOn(CreativeTabs.tabMaterials);
-        metal      = new ItemAFMetal(ItemIds.ITEM_METAL)
+        metal      = new ItemAFMetal(ItemIds.ID_ITEM_METAL)
                 .setIconCoord(2, 0)
                 .setItemName(NAME_METAL)
                 .setTabToDisplayOn(CreativeTabs.tabMaterials);
-        slateFlake = new ItemAFSlateFlake(ItemIds.ITEM_SLATE_FLAKE)
+        slateFlake = new ItemAFSlateFlake(ItemIds.ID_ITEM_SLATEF)
                 .setIconCoord(1, 3)
                 .setItemName(NAME_SLATEF)
                 .setTabToDisplayOn(CreativeTabs.tabMaterials);
-        chalk      = new ItemAFChalk(ItemIds.ITEM_CHALK)
+        chalk      = new ItemAFChalk(ItemIds.ID_ITEM_CHALK)
                 .setIconCoord(0, 2)
                 .setItemName(NAME_CHALK)
                 .setTabToDisplayOn(CreativeTabs.tabMaterials);
-        salt       = new ItemAFSalt(ItemIds.ITEM_SALT)
+        salt       = new ItemAFSalt(ItemIds.ID_ITEM_SALT)
                 .setIconCoord(0, 3)
                 .setItemName(NAME_SALT)
                 .setTabToDisplayOn(CreativeTabs.tabMaterials);
@@ -83,7 +83,7 @@ public class ItemManager {
 
             // easier to loop than to go through EVERY SINGLE SWORD
             final String name = material.name().toLowerCase(Locale.US);
-            swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ITEM_SWORD + i, material)
+            swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ID_ITEM_SWORD + i, material)
                     .setIconCoord(i, 1).setItemName("sword." /* NOI18N */ + name)
                     .setTabToDisplayOn(CreativeTabs.tabCombat);
 

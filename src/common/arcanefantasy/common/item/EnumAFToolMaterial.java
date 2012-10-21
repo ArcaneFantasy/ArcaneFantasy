@@ -31,22 +31,22 @@ public enum EnumAFToolMaterial {
     public final float   efficiencyOnProperMaterial;
     public final int     damageVsEntity;
     public final int     enchantability;
-    public final boolean ingot;
+    public final boolean isIngot;
     public final int     materialMeta;
 
-    private EnumAFToolMaterial(int     harvestLevel,
-                               int     maxUses,
-                               float   efficiency,
-                               int     damage,
-                               int     enchantability,
-                               boolean ingot,
-                               int     materialMeta) {
+    private EnumAFToolMaterial(final int     harvestLevel,
+                               final int     maxUses,
+                               final float   efficiency,
+                               final int     damage,
+                               final int     enchantability,
+                               final boolean isIngot,
+                               final int     materialMeta) {
         this.harvestLevel               = harvestLevel;
         this.maxUses                    = maxUses;
         this.efficiencyOnProperMaterial = efficiency;
         this.damageVsEntity             = damage;
         this.enchantability             = enchantability;
-        this.ingot                      = ingot;
+        this.isIngot                      = isIngot;
         this.materialMeta               = materialMeta;
     }
 }
