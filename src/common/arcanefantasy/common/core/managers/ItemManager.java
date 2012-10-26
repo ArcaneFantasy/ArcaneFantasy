@@ -59,23 +59,23 @@ public class ItemManager {
         gem        = new ItemAFGem(ItemIds.ID_ITEM_GEM)
                 .setIconCoord(0, 0)
                 .setItemName(NAME_GEM)
-                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+                .setCreativeTab(CreativeTabs.tabMaterials);
         metal      = new ItemAFMetal(ItemIds.ID_ITEM_METAL)
                 .setIconCoord(2, 0)
                 .setItemName(NAME_METAL)
-                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+                .setCreativeTab(CreativeTabs.tabMaterials);
         slateFlake = new ItemAFSlateFlake(ItemIds.ID_ITEM_SLATEF)
                 .setIconCoord(1, 3)
                 .setItemName(NAME_SLATEF)
-                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+                .setCreativeTab(CreativeTabs.tabMaterials);
         chalk      = new ItemAFChalk(ItemIds.ID_ITEM_CHALK)
                 .setIconCoord(0, 2)
                 .setItemName(NAME_CHALK)
-                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+                .setCreativeTab(CreativeTabs.tabMaterials);
         salt       = new ItemAFSalt(ItemIds.ID_ITEM_SALT)
                 .setIconCoord(0, 3)
                 .setItemName(NAME_SALT)
-                .setTabToDisplayOn(CreativeTabs.tabMaterials);
+                .setCreativeTab(CreativeTabs.tabMaterials);
 //J+
         int i = 0;
 
@@ -85,7 +85,7 @@ public class ItemManager {
             final String name = material.name().toLowerCase(Locale.US);
             swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ID_ITEM_SWORD + i, material)
                     .setIconCoord(i, 1).setItemName("sword." /* NOI18N */ + name)
-                    .setTabToDisplayOn(CreativeTabs.tabCombat);
+                    .setCreativeTab(CreativeTabs.tabCombat);
 
             // while we're in here, we might as well add the names
             LanguageRegistry.addName(

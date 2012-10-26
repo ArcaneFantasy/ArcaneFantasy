@@ -40,25 +40,25 @@ public class ConfigurationHandler {
         config.load();
 
         // Block Ids
-        ID_BLOCK_ORE_GEM   = config.getOrCreateBlockIdProperty(NAME_ORE_GEM, ID_BLOCK_ORE_GEM)
+        ID_BLOCK_ORE_GEM   = config.getBlock(NAME_ORE_GEM, ID_BLOCK_ORE_GEM)
                                    .getInt(ID_BLOCK_ORE_GEM);
-        ID_BLOCK_ORE_METAL = config.getOrCreateBlockIdProperty(NAME_ORE_METAL, ID_BLOCK_ORE_METAL)
+        ID_BLOCK_ORE_METAL = config.getBlock(NAME_ORE_METAL, ID_BLOCK_ORE_METAL)
                                    .getInt(ID_BLOCK_ORE_METAL);
-        ID_BLOCK_STONE     = config.getOrCreateBlockIdProperty(NAME_STONE, ID_BLOCK_STONE)
+        ID_BLOCK_STONE     = config.getBlock(NAME_STONE, ID_BLOCK_STONE)
                                    .getInt(ID_BLOCK_STONE);
 
         // Item Ids
-        ID_ITEM_GEM    = config.getOrCreateIntProperty(NAME_GEM, CATEGORY_ITEM, ID_ITEM_GEM)
+        ID_ITEM_GEM    = config.getItem(NAME_GEM, CATEGORY_ITEM, ID_ITEM_GEM)
                                .getInt(ID_ITEM_GEM);
-        ID_ITEM_METAL  = config.getOrCreateIntProperty(NAME_METAL, CATEGORY_ITEM, ID_ITEM_METAL)
+        ID_ITEM_METAL  = config.getItem(NAME_METAL, CATEGORY_ITEM, ID_ITEM_METAL)
                                .getInt(ID_ITEM_METAL);
-        ID_ITEM_SLATEF = config.getOrCreateIntProperty(NAME_SLATEF, CATEGORY_ITEM, ID_ITEM_SLATEF)
+        ID_ITEM_SLATEF = config.getItem(NAME_SLATEF, CATEGORY_ITEM, ID_ITEM_SLATEF)
                                .getInt(ID_ITEM_SLATEF);
-        ID_ITEM_CHALK  = config.getOrCreateIntProperty(NAME_CHALK, CATEGORY_ITEM, ID_ITEM_CHALK)
+        ID_ITEM_CHALK  = config.getItem(NAME_CHALK, CATEGORY_ITEM, ID_ITEM_CHALK)
                                .getInt(ID_ITEM_CHALK);
-        ID_ITEM_SALT   = config.getOrCreateIntProperty(NAME_SALT, CATEGORY_ITEM, ID_ITEM_SALT)
+        ID_ITEM_SALT   = config.getItem(NAME_SALT, CATEGORY_ITEM, ID_ITEM_SALT)
                                .getInt(ID_ITEM_SALT);
-        ID_ITEM_SWORD  = config.getOrCreateIntProperty(NAME_SWORD, CATEGORY_ITEM, ID_ITEM_SWORD)
+        ID_ITEM_SWORD  = config.getItem(NAME_SWORD, CATEGORY_ITEM, ID_ITEM_SWORD)
                                .getInt(ID_ITEM_SWORD);
 
         config.save();

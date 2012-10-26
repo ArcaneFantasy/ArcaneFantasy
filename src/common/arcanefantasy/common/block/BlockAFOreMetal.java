@@ -49,7 +49,7 @@ public class BlockAFOreMetal extends BlockOre {
     }
 
     @Override
-    protected int damageDropped(int damage) {
+    public int damageDropped(int damage) {
         return damage;
     }
     // don't override idDropped, because we want to drop the ore block, not

@@ -101,7 +101,7 @@ public class WorldGeneratorDelegate implements IWorldGenerator {
         // as the one we're in
         for (int level : nonGenLevels) {
 
-            if (world.provider.worldType == level) {
+            if (world.provider.dimensionId == level) {
 
                 // don't do anything if we're generating in a dimention
                 // that we shouldn't generate in (i.e. nether)

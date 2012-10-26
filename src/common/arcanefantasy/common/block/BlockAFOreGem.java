@@ -58,7 +58,7 @@ public class BlockAFOreGem extends BlockOre {
     }
 
     @Override
-    protected int damageDropped(final int damage) {
+    public int damageDropped(final int damage) {
         return damage;
     }
 

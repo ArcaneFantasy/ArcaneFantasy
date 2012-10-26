@@ -72,9 +72,9 @@
 
     -->
     <target name="-post-init">
-        <property name="mod-files" value="arcane_fantasy/"/>
+        <property name="mod-files" value="arcanefantasy/"/>
         <property name="build.classes.reobf.dir" value="${build.dir}/reobfclasses"/>
-        <property name="mcp.dir" value="mcp72" />
+        <property name="mcp.dir" value="mcp" />
         <property name="mcp.classes.dir" value="${mcp.dir}/bin/minecraft" />
         <property name="mcp.classes.reobf.dir" value="${mcp.dir}/reobf/minecraft"/>
     </target>
@@ -91,7 +91,7 @@
             <fileset defaultexcludes="yes" dir="${mcp.classes.reobf.dir}" includes="${mod-files}"/>
         </copy>
     </target>
-    <target name="-pre-jar">
+    <target name="-post-jar">
         <zip destfile="${dist.dir}/Arcane and Fantasy.zip">
             <fileset defaultexcludes="yes" dir="${build.classes.reobf.dir}" includes="${mod-files}"/>
             <fileset defaultexcludes="yes" dir="${build.classes.dir}" includes="${mod-files}/art/"/>

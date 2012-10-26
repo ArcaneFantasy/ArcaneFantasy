@@ -86,7 +86,7 @@ public class BlockAFStone extends BlockStone {
     }
 
     @Override
-    protected int damageDropped(final int damage) {
+    public int damageDropped(final int damage) {
 
         switch (damage) {
 
