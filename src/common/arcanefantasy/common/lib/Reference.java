@@ -51,7 +51,7 @@ public class Reference {
     /**
      * Directory that the sprite sheets are in.
      */
-    public static final String SPRITE_SHEET_LOCATION = "/arcaneFantasy/art/sprites/";
+    public static final String SPRITE_SHEET_LOCATION = "/arcanefantasy/art/sprites/";
 
     /**
      * File name of the icon sprite sheet.
@@ -66,7 +66,7 @@ public class Reference {
     /**
      * Directory that the textures are in.
      */
-    public static final String TEXTURE_LOCATION = "/arcaneFantasy/art/RevenantGaze/";
+    public static final String TEXTURE_LOCATION = "/arcanefantasy/art/mobs/";
 
     /**
      * File name of the Rapace texture.

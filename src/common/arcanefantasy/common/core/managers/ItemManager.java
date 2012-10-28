@@ -81,15 +81,15 @@ public class ItemManager {
                 .setItemName(NAME_METAL)
                 .setCreativeTab(CreativeTabs.tabMaterials);
         slateFlake = new ItemAFSlateFlake(ItemIds.ID_ITEM_SLATEF)
-                .setIconCoord(1, 3)
+                .setIconCoord(1, 7)
                 .setItemName(NAME_SLATEF)
                 .setCreativeTab(CreativeTabs.tabMaterials);
         chalk      = new ItemAFChalk(ItemIds.ID_ITEM_CHALK)
-                .setIconCoord(0, 2)
+                .setIconCoord(0, 6)
                 .setItemName(NAME_CHALK)
                 .setCreativeTab(CreativeTabs.tabMaterials);
         salt       = new ItemAFSalt(ItemIds.ID_ITEM_SALT)
-                .setIconCoord(0, 3)
+                .setIconCoord(0, 7)
                 .setItemName(NAME_SALT)
                 .setCreativeTab(CreativeTabs.tabMaterials);
 
@@ -103,7 +103,7 @@ public class ItemManager {
 
             //axes
             axes[i]     = (ItemAFAxe) new ItemAFAxe(ItemIds.ID_ITEM_AXE[i], material)
-                    .setIconCoord(i, 4).setItemName("axe." /* NOI18N */ + name)
+                    .setIconCoord(i, 2).setItemName("axe." /* NOI18N */ + name)
                     .setCreativeTab(CreativeTabs.tabTools);
 
             // hoes
@@ -118,7 +118,7 @@ public class ItemManager {
 
             // spades
             spades[i]   = (ItemAFSpade) new ItemAFSpade(ItemIds.ID_ITEM_SPADE[i], material)
-                    .setIconCoord(i, 2).setItemName("spade." /* NOI18N */ + name)
+                    .setIconCoord(i, 4).setItemName("spade." /* NOI18N */ + name)
                     .setCreativeTab(CreativeTabs.tabTools);
 
             // swords
