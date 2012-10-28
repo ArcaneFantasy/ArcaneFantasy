@@ -102,27 +102,27 @@ public class ItemManager {
             final String name = material.name().toLowerCase(Locale.US);
 
             //axes
-            axes[i]     = (ItemAFAxe) new ItemAFAxe(ItemIds.ID_ITEM_AXE + i, material)
+            axes[i]     = (ItemAFAxe) new ItemAFAxe(ItemIds.ID_ITEM_AXE[i], material)
                     .setIconCoord(i, 4).setItemName("axe." /* NOI18N */ + name)
                     .setCreativeTab(CreativeTabs.tabTools);
 
             // hoes
-            hoes[i]     = (ItemAFHoe) new ItemAFHoe(ItemIds.ID_ITEM_HOE + i, material)
+            hoes[i]     = (ItemAFHoe) new ItemAFHoe(ItemIds.ID_ITEM_HOE[i], material)
                     .setIconCoord(i, 5).setItemName("hoe." /* NOI18N */ + name)
                     .setCreativeTab(CreativeTabs.tabTools);
 
             // pickaxes
-            pickaxes[i] = (ItemAFPickaxe) new ItemAFAxe(ItemIds.ID_ITEM_PICKAXE + i, material)
+            pickaxes[i] = (ItemAFPickaxe) new ItemAFPickaxe(ItemIds.ID_ITEM_PICKAXE[i], material)
                     .setIconCoord(i, 3).setItemName("pickaxe." /* NOI18N */ + name)
                     .setCreativeTab(CreativeTabs.tabTools);
 
             // spades
-            spades[i]   = (ItemAFSpade) new ItemAFSpade(ItemIds.ID_ITEM_SPADE + i, material)
+            spades[i]   = (ItemAFSpade) new ItemAFSpade(ItemIds.ID_ITEM_SPADE[i], material)
                     .setIconCoord(i, 2).setItemName("spade." /* NOI18N */ + name)
                     .setCreativeTab(CreativeTabs.tabTools);
 
             // swords
-            swords[i]   = (ItemAFSword) new ItemAFSword(ItemIds.ID_ITEM_SWORD + i, material)
+            swords[i]   = (ItemAFSword) new ItemAFSword(ItemIds.ID_ITEM_SWORD[i], material)
                     .setIconCoord(i, 1).setItemName("sword." /* NOI18N */ + name)
                     .setCreativeTab(CreativeTabs.tabCombat);
 
