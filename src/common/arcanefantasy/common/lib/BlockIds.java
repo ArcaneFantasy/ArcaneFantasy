@@ -12,7 +12,7 @@ package arcanefantasy.common.lib;
 @SuppressWarnings("PublicField" /* NOI18N */)
 public class BlockIds {
 
-    public static int ID_BLOCK_ORE_GEM   = 400;
-    public static int ID_BLOCK_ORE_METAL = 401;
-    public static int ID_BLOCK_STONE     = 402;
+    public static int ID_BLOCK_ORE_GEM   = 500;
+    public static int ID_BLOCK_ORE_METAL = 501;
+    public static int ID_BLOCK_STONE     = 502;
 }
