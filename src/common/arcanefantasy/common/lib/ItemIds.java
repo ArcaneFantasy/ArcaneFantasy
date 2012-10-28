@@ -12,11 +12,11 @@ package arcanefantasy.common.lib;
 @SuppressWarnings("PublicField" /* NOI18N */)
 public class ItemIds {
 
-    public static int   ID_ITEM_GEM     = 500;
-    public static int   ID_ITEM_METAL   = 501;
-    public static int   ID_ITEM_SLATEF  = 502;
-    public static int   ID_ITEM_CHALK   = 503;
-    public static int   ID_ITEM_SALT    = 504;
+    public static int   ID_ITEM_GEM     = 5000;
+    public static int   ID_ITEM_METAL   = 5001;
+    public static int   ID_ITEM_SLATEF  = 5002;
+    public static int   ID_ITEM_CHALK   = 5003;
+    public static int   ID_ITEM_SALT    = 5004;
     public static int[] ID_ITEM_SWORD   = new int[16];
     public static int[] ID_ITEM_AXE     = new int[16];
     public static int[] ID_ITEM_HOE     = new int[16];
@@ -24,11 +24,11 @@ public class ItemIds {
     public static int[] ID_ITEM_SPADE   = new int[16];
 
     static {
-        ID_ITEM_SWORD[0]   = 521;
-        ID_ITEM_AXE[0]     = 537;
-        ID_ITEM_HOE[0]     = 553;
-        ID_ITEM_PICKAXE[0] = 569;
-        ID_ITEM_SPADE[0]   = 585;
+        ID_ITEM_SWORD[0]   = 5021;
+        ID_ITEM_AXE[0]     = 5037;
+        ID_ITEM_HOE[0]     = 5053;
+        ID_ITEM_PICKAXE[0] = 5069;
+        ID_ITEM_SPADE[0]   = 5085;
 
         for (int i = 1; i < 16; i++) {
             ID_ITEM_AXE[i]     = ID_ITEM_AXE[i - 1] - 1;
