@@ -46,7 +46,7 @@ public enum EnumAFToolMaterial {
         this.efficiencyOnProperMaterial = efficiency;
         this.damageVsEntity             = damage;
         this.enchantability             = enchantability;
-        this.isIngot                      = isIngot;
+        this.isIngot                    = isIngot;
         this.materialMeta               = materialMeta;
     }
 }

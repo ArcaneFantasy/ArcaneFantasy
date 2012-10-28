@@ -21,12 +21,12 @@ import net.minecraft.src.World;
  *
  * @author  HMPerson1
  */
-public class ItemAFSword extends ItemSword {
+public class ItemAFSword extends ItemSword implements IAFTool {
 
     /**
      * The material this item is made of.
      */
-    public final EnumAFToolMaterial toolMaterial;
+    protected final EnumAFToolMaterial toolMaterial;
 
     /**
      * How much damage this does to an entity.
@@ -136,5 +136,10 @@ public class ItemAFSword extends ItemSword {
 
         // used by furnaces to see if this is a wooden tool
         return toolMaterial.toString();
+    }
+
+    @Override
+    public EnumAFToolMaterial getMaterial() {
+        return toolMaterial;
     }
 }

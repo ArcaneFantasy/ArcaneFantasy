@@ -52,6 +52,7 @@ public class RecipeManager {
 
     private static void initCrafting() {
 
+        //<editor-fold defaultstate="collapsed" desc="Slate Recipes">
         // slate
         final ItemStack slateFx2 = new ItemStack(slateFlake, 1, 1);
 
@@ -63,8 +64,9 @@ public class RecipeManager {
                 { slateFx2, slateFx2, slateFx2 },
                 { slateFx2, slateFx2, slateFx2 }
             });
+        //</editor-fold>
 
-
+        //<editor-fold defaultstate="collapsed" desc="Chalk Recipes">
         // coloring chalk
         for (int i = 0; i < (ItemAFChalk.CHALK_TYPES - 1); i++) {
 
@@ -80,15 +82,76 @@ public class RecipeManager {
                                new ItemStack(chalk, 1, 15));
             // you can get 2 colorings for one dye
         }
+        //</editor-fold>
+
+        //<editor-fold defaultstate="collapsed" desc="Tool Recipes">
+        // axes
+        for (final ItemAFAxe axe : axes) {
+            final EnumAFToolMaterial tMaterial = axe.getMaterial();
+            final ItemStack          material  = new ItemStack(
+                    tMaterial.isIngot ? metal.shiftedIndex : gem.shiftedIndex,
+                    1,
+                    tMaterial.materialMeta);
+            addRecipe(new ItemStack(axe),
+                      new Object[][] {
+                    { material, material },
+                    { material, Item.stick },
+                    { null, Item.stick }
+                });
+        }
+
+        // hoes
+        for (final ItemAFHoe hoe : hoes) {
+            final EnumAFToolMaterial tMaterial = hoe.getMaterial();
+            final ItemStack          material  = new ItemStack(
+                    tMaterial.isIngot ? metal.shiftedIndex : gem.shiftedIndex,
+                    1,
+                    tMaterial.materialMeta);
+            addRecipe(new ItemStack(hoe),
+                      new Object[][] {
+                    { material, material },
+                    { null, Item.stick },
+                    { null, Item.stick }
+                });
+        }
+
+        // pickaxes
+        for (final ItemAFPickaxe pickaxe : pickaxes) {
+            final EnumAFToolMaterial tMaterial = pickaxe.getMaterial();
+            final ItemStack          material  = new ItemStack(
+                    tMaterial.isIngot ? metal.shiftedIndex : gem.shiftedIndex,
+                    1,
+                    tMaterial.materialMeta);
+            addRecipe(new ItemStack(pickaxe),
+                      new Object[][] {
+                    { material, material, material },
+                    { null, Item.stick, null },
+                    { null, Item.stick, null }
+                });
+        }
+
+        // spades
+        for (final ItemAFSpade spade : spades) {
+            final EnumAFToolMaterial tMaterial = spade.getMaterial();
+            final ItemStack          material  = new ItemStack(
+                    tMaterial.isIngot ? metal.shiftedIndex : gem.shiftedIndex,
+                    1,
+                    tMaterial.materialMeta);
+            addRecipe(new ItemStack(spade),
+                      new Object[][] {
+                    { material },
+                    { Item.stick },
+                    { Item.stick }
+                });
+        }
 
         // swords
         for (final ItemAFSword sword : swords) {
-
-            final ItemStack material = new ItemStack(
-                    sword.toolMaterial.isIngot ? metal.shiftedIndex : gem.shiftedIndex,
+            final EnumAFToolMaterial tMaterial = sword.getMaterial();
+            final ItemStack          material  = new ItemStack(
+                    tMaterial.isIngot ? metal.shiftedIndex : gem.shiftedIndex,
                     1,
-                    sword.toolMaterial.materialMeta);
-
+                    tMaterial.materialMeta);
             addRecipe(new ItemStack(sword),
                       new Object[][] {
                     { material },
@@ -96,6 +159,7 @@ public class RecipeManager {
                     { Item.stick }
                 });
         }
+        //</editor-fold>
     }
 
     private static void addRecipe(final ItemStack out, final Object[][] recipe) {

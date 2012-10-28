@@ -4,19 +4,21 @@
  */
 package arcanefantasy.common.core.managers;
 
-import arcanefantasy.common.core.managers.BlockManager;
 import arcanefantasy.common.item.EnumAFToolMaterial;
+import arcanefantasy.common.item.ItemAFAxe;
 import arcanefantasy.common.item.ItemAFChalk;
 import arcanefantasy.common.item.ItemAFGem;
+import arcanefantasy.common.item.ItemAFHoe;
 import arcanefantasy.common.item.ItemAFMetal;
+import arcanefantasy.common.item.ItemAFPickaxe;
 import arcanefantasy.common.item.ItemAFSalt;
 import arcanefantasy.common.item.ItemAFSlateFlake;
+import arcanefantasy.common.item.ItemAFSpade;
 import arcanefantasy.common.item.ItemAFSword;
 import arcanefantasy.common.lib.ItemIds;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-import net.minecraft.src.CraftingManager;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -33,20 +35,33 @@ import java.util.Locale;
 public class ItemManager {
 
     /* Item name constants */
-    public static final String NAME_GEM    = "gem";
-    public static final String NAME_METAL  = "metal";
-    public static final String NAME_SLATEF = "slatef";
-    public static final String NAME_CHALK  = "chalk";
-    public static final String NAME_SALT   = "salt";
-    public static final String NAME_SWORD  = "swords";
+    public static final String NAME_GEM     = "gem";
+    public static final String NAME_METAL   = "metal";
+    public static final String NAME_SLATEF  = "slatef";
+    public static final String NAME_CHALK   = "chalk";
+    public static final String NAME_SALT    = "salt";
+    public static final String NAME_AXE     = "axes";
+    public static final String NAME_HOE     = "hoes";
+    public static final String NAME_PICKAXE = "pickaxes";
+    public static final String NAME_SPADE   = "spades";
+    public static final String NAME_SWORD   = "swords";
 
     /* Item instances */
-    public static Item          gem;
-    public static Item          metal;
-    public static Item          slateFlake;
-    public static Item          chalk;
-    public static Item          salt;
-    public static ItemAFSword[] swords = new ItemAFSword[EnumAFToolMaterial.values().length];
+    public static Item                  gem;
+    public static Item                  metal;
+    public static Item                  slateFlake;
+    public static Item                  chalk;
+    public static Item                  salt;
+    public static final ItemAFAxe[]     axes     =
+        new ItemAFAxe[EnumAFToolMaterial.values().length];
+    public static final ItemAFHoe[]     hoes     =
+        new ItemAFHoe[EnumAFToolMaterial.values().length];
+    public static final ItemAFPickaxe[] pickaxes =
+        new ItemAFPickaxe[EnumAFToolMaterial.values().length];
+    public static final ItemAFSpade[]   spades   =
+        new ItemAFSpade[EnumAFToolMaterial.values().length];
+    public static final ItemAFSword[]   swords   =
+        new ItemAFSword[EnumAFToolMaterial.values().length];
 
     private ItemManager() { }
 
@@ -54,6 +69,7 @@ public class ItemManager {
      * Initializes items.
      */
     public static void init() {
+
 //J-
         // add the items
         gem        = new ItemAFGem(ItemIds.ID_ITEM_GEM)
@@ -76,18 +92,65 @@ public class ItemManager {
                 .setIconCoord(0, 3)
                 .setItemName(NAME_SALT)
                 .setCreativeTab(CreativeTabs.tabMaterials);
-//J+
+
         int i = 0;
 
+        // tools
         for (final EnumAFToolMaterial material : EnumAFToolMaterial.values()) {
 
-            // easier to loop than to go through EVERY SINGLE SWORD
+            // easier to loop than to go through EVERY SINGLE TOOL
             final String name = material.name().toLowerCase(Locale.US);
-            swords[i] = (ItemAFSword) new ItemAFSword(ItemIds.ID_ITEM_SWORD + i, material)
+
+            //axes
+            axes[i]     = (ItemAFAxe) new ItemAFAxe(ItemIds.ID_ITEM_AXE + i, material)
+                    .setIconCoord(i, 4).setItemName("axe." /* NOI18N */ + name)
+                    .setCreativeTab(CreativeTabs.tabTools);
+
+            // hoes
+            hoes[i]     = (ItemAFHoe) new ItemAFHoe(ItemIds.ID_ITEM_HOE + i, material)
+                    .setIconCoord(i, 5).setItemName("hoe." /* NOI18N */ + name)
+                    .setCreativeTab(CreativeTabs.tabTools);
+
+            // pickaxes
+            pickaxes[i] = (ItemAFPickaxe) new ItemAFAxe(ItemIds.ID_ITEM_PICKAXE + i, material)
+                    .setIconCoord(i, 3).setItemName("pickaxe." /* NOI18N */ + name)
+                    .setCreativeTab(CreativeTabs.tabTools);
+
+            // spades
+            spades[i]   = (ItemAFSpade) new ItemAFSpade(ItemIds.ID_ITEM_SPADE + i, material)
+                    .setIconCoord(i, 2).setItemName("spade." /* NOI18N */ + name)
+                    .setCreativeTab(CreativeTabs.tabTools);
+
+            // swords
+            swords[i]   = (ItemAFSword) new ItemAFSword(ItemIds.ID_ITEM_SWORD + i, material)
                     .setIconCoord(i, 1).setItemName("sword." /* NOI18N */ + name)
                     .setCreativeTab(CreativeTabs.tabCombat);
 
             // while we're in here, we might as well add the names
+            LanguageRegistry.addName(
+                axes[i],
+                new StringBuilder().append(name.substring(0, 1).toUpperCase(Locale.US))
+                                   .append(name.substring(1))
+                                   .append(" Axe")
+                                   .toString());
+            LanguageRegistry.addName(
+                hoes[i],
+                new StringBuilder().append(name.substring(0, 1).toUpperCase(Locale.US))
+                                   .append(name.substring(1))
+                                   .append(" Hoe")
+                                   .toString());
+            LanguageRegistry.addName(
+                pickaxes[i],
+                new StringBuilder().append(name.substring(0, 1).toUpperCase(Locale.US))
+                                   .append(name.substring(1))
+                                   .append(" Pickaxe")
+                                   .toString());
+            LanguageRegistry.addName(
+                spades[i],
+                new StringBuilder().append(name.substring(0, 1).toUpperCase(Locale.US))
+                                   .append(name.substring(1))
+                                   .append(" Spade")
+                                   .toString());
             LanguageRegistry.addName(
                 swords[i],
                 new StringBuilder().append(name.substring(0, 1).toUpperCase(Locale.US))
@@ -96,6 +159,7 @@ public class ItemManager {
                                    .toString());
             ++i;
         }
+//J+
 
         // add ALL the names
         LanguageRegistry.addName(new ItemStack(gem, 1, 0), "Quartz");

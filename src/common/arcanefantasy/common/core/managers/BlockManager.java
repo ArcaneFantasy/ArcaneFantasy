@@ -8,9 +8,6 @@ import arcanefantasy.common.block.BlockAFOreGem;
 import arcanefantasy.common.block.BlockAFOreMetal;
 import arcanefantasy.common.block.BlockAFStone;
 import arcanefantasy.common.block.ItemDamageValuedBlock;
-import arcanefantasy.common.core.managers.ItemManager;
-import arcanefantasy.common.item.ItemAFGem;
-import arcanefantasy.common.item.ItemAFMetal;
 import arcanefantasy.common.lib.WorldGen.Ore;
 import arcanefantasy.common.lib.WorldGeneratorDelegate;
 
@@ -19,7 +16,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import net.minecraft.src.Block;
-import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.WorldGenMinable;
 

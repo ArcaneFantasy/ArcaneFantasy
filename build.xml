@@ -80,6 +80,8 @@
     </target>
     <target name="-post-compile">
         <mkdir dir="minecraft"/>
+    </target>
+    <target name="-post-jar">
         <mkdir dir="${build.classes.reobf.dir}"/>
         <copy todir="${mcp.classes.dir}" overwrite="yes">
             <fileset defaultexcludes="yes" dir="${build.classes.dir}" includes="${mod-files}"/>
@@ -90,8 +92,6 @@
         <copy todir="${build.classes.reobf.dir}">
             <fileset defaultexcludes="yes" dir="${mcp.classes.reobf.dir}" includes="${mod-files}"/>
         </copy>
-    </target>
-    <target name="-post-jar">
         <zip destfile="${dist.dir}/Arcane and Fantasy.zip">
             <fileset defaultexcludes="yes" dir="${build.classes.reobf.dir}" includes="${mod-files}"/>
             <fileset defaultexcludes="yes" dir="${build.classes.dir}" includes="${mod-files}/art/"/>
