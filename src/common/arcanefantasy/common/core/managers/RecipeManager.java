@@ -41,12 +41,14 @@ public class RecipeManager {
 
         for (int i = 0; i < ItemAFGem.GEM_TYPES; ++i) {
             recipes.addSmelting(oreGem.blockID, i,
-                                new ItemStack(gem, 1, i));
+                                new ItemStack(gem, 1, i),
+                                1.0F);
         }
 
         for (int i = 0; i < ItemAFMetal.METAL_TYPES; ++i) {
             recipes.addSmelting(oreMetal.blockID, i,
-                                new ItemStack(metal, 1, i));
+                                new ItemStack(metal, 1, i),
+                                0.7F);
         }
     }
 
