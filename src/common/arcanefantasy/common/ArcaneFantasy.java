@@ -54,7 +54,7 @@ public class ArcaneFantasy {
      */
     @SidedProxy(
         clientSide = "arcanefantasy.client.core.ClientProxy" /* NOI18N */,
-        serverSide = "arcanefantaxy.common.core.CommonProxy" /* NOI18N */
+        serverSide = "arcanefantasy.common.core.CommonProxy" /* NOI18N */
     )
     @SuppressWarnings("PublicField"                          /* NOI18N */)
     public static CommonProxy proxy;
